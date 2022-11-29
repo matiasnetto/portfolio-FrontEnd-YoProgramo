@@ -1,0 +1,92 @@
+img {
+  width: 13rem;
+  padding: 0.25rem;
+  /* 
+  background: linear-gradient(
+    132deg,
+    rgb(31, 207, 195) 0%,
+    rgb(31, 145, 207) 100%
+  );
+
+  background: linear-gradient(
+    132deg,
+    rgb(0, 48, 143) 0%,
+    rgb(0, 255, 255) 100%
+  ); */
+
+  background: linear-gradient(
+    132deg,
+    rgb(0, 103, 154) 0%,
+    rgb(0, 173, 239) 100%
+  );
+
+  border: 2px solid #dee2e6;
+  border-radius: 100%;
+}
+
+.container {
+  display: flex;
+  padding: 0 2rem;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #212529;
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #212529;
+}
+
+/* .card-bg {
+  padding: 0.25rem;
+  background: linear-gradient(
+    132deg,
+    rgb(0, 103, 154) 0%,
+    rgb(0, 173, 239) 100%
+  );
+  border-radius: 10px;
+} */
+
+.card {
+  height: fit-content;
+  margin: 0rem 0 0 5rem;
+  border-radius: 0.5rem;
+}
+
+.card__title {
+  font-size: 1.1rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid #dee2e6;
+  border-bottom: 0 transparent;
+  border-radius: 0.5rem 0.5rem 0 0;
+  background: #f7f7f7;
+}
+
+.card__content {
+  padding: 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.card__content span {
+  display: block;
+  margin: 1rem 0;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    padding: 0;
+    align-items: center;
+  }
+
+  .card {
+    margin: 2rem 0 0 0;
+  }
+}
