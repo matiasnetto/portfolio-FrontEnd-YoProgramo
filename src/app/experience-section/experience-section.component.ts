@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-export interface IExperienceItem {
+interface IExperienceItem {
   img: string;
   title: string;
   description: string;
