@@ -1,0 +1,46 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 2rem;
+  border: 1px solid #0000002d;
+  border-radius: 0.5rem;
+}
+
+img {
+  width: 50%;
+}
+
+.card-body {
+  margin: 1rem 0;
+}
+
+h5 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #111;
+  margin: 0.5rem 0;
+}
+
+p {
+  color: #151515;
+}
+
+.text-muted {
+  margin-top: 1rem;
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 767px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
