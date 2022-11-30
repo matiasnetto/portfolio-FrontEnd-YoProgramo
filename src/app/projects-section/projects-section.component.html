@@ -1,0 +1,28 @@
+<section>
+  <h3 class="section-title">4 - Proyectos</h3>
+  <div class="grid-container">
+    <div *ngFor="let p of projects" class="card">
+      <img [src]="p.img" alt="" />
+      <div class="card-body">
+        <h5>{{ p.title }}</h5>
+        <p>
+          {{ p.description }}
+        </p>
+        <div class="buttons-container">
+          <a
+            [href]="p.siteURL"
+            role="button"
+            class="btn btn-outline-primary mx-md-3 mx-2"
+            >Ver sitio Web</a
+          >
+          <a
+            [href]="p.codeURL"
+            role="button"
+            class="btn btn-outline-primary mx-md-3 mx-2"
+            >Ver codigo</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
