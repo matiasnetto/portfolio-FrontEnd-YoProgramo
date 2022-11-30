@@ -1,0 +1,76 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem 4rem;
+  padding: 0 4rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #0000002d;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  /* margin: 0 2rem; */
+}
+
+img {
+  width: 60%;
+  /* height: 20%; */
+}
+
+.card__title {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}
+
+.progress {
+  height: 1rem;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #e9ecef;
+  border-radius: 0.5rem;
+}
+
+.progress-bar {
+  /* position: absolute; */
+  /* left: 0; */
+  height: 100%;
+  width: 60%;
+  background-color: #0d6efd;
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+  color: #fff;
+  text-align: center;
+  font-size: 0.8rem;
+
+  animation: 5s bar-animation linear infinite;
+}
+
+@keyframes bar-animation {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: -10rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .grid-container {
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+    gap: 1rem;
+  }
+}
