@@ -20,6 +20,14 @@ section {
   margin-bottom: 1.5rem;
 }
 
+h5 {
+  color: #111;
+}
+
+p {
+  color: #252525;
+}
+
 @media screen and (max-width: 767px) {
   section {
     width: 90%;

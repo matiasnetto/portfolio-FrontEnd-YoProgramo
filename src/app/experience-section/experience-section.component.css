@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
-  padding: 0 1rem;
+  margin: 0 1rem;
 }
 
 .card {
@@ -25,12 +25,7 @@ img {
 h5 {
   font-size: 1.3rem;
   font-weight: 500;
-  color: #111;
   margin: 0.5rem 0;
-}
-
-p {
-  color: #151515;
 }
 
 .text-muted {
@@ -42,5 +37,6 @@ p {
 @media screen and (max-width: 767px) {
   .grid-container {
     grid-template-columns: 1fr;
+    margin: 0 0;
   }
 }

@@ -4,7 +4,7 @@
   padding: 1rem;
   border: 1px solid #0000002d;
   border-radius: 0.5rem;
-  margin: 1.5rem 0;
+  margin: 1.5rem 1rem;
 }
 
 img {
@@ -22,12 +22,10 @@ img {
 h5 {
   font-size: 1.5rem;
   font-weight: 500;
-  color: #111;
 }
 
 p {
   margin: 0.5rem 0;
-  color: #222;
 }
 
 .text-muted {
@@ -39,6 +37,7 @@ p {
 @media screen and (max-width: 767px) {
   .card {
     grid-template-columns: 1fr;
+    margin: 1.5rem 0;
   }
 
   .card-body {
