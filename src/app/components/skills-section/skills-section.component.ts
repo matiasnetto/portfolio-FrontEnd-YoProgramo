@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ISkill, PortfolioService } from '../services/portfolio.service';
+import { ISkill, PortfolioService } from '../../services/portfolio.service';
 
 @Component({
   selector: 'skills-section',

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {
   IEducationItem,
   PortfolioService,
-} from '../services/portfolio.service';
+} from '../../services/portfolio.service';
 
 @Component({
   selector: 'education-section',

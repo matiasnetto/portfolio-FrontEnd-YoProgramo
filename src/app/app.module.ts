@@ -4,13 +4,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { HeroComponent } from './hero/hero.component';
-import { AboutSectionComponent } from './about-section/about-section.component';
-import { ExperienceSectionComponent } from './experience-section/experience-section.component';
-import { EducationSectionComponent } from './education-section/education-section.component';
-import { SkillsSectionComponent } from './skills-section/skills-section.component';
-import { ProjectsSectionComponent } from './projects-section/projects-section.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HeroComponent } from './components/hero/hero.component';
+import { AboutSectionComponent } from './components/about-section/about-section.component';
+import { ExperienceSectionComponent } from './components/experience-section/experience-section.component';
+import { EducationSectionComponent } from './components/education-section/education-section.component';
+import { SkillsSectionComponent } from './components/skills-section/skills-section.component';
+import { ProjectsSectionComponent } from './components/projects-section/projects-section.component';
 
 @NgModule({
   declarations: [

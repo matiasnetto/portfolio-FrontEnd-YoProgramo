@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IProject, PortfolioService } from '../services/portfolio.service';
+import { IProject, PortfolioService } from '../../services/portfolio.service';
 
 @Component({
   selector: 'projects-section',
