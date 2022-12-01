@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+section {
+  width: 70%;
+  margin: 3.5rem 0 3.5rem 15%;
+}
+
+.section-title {
+  font-size: 1.7rem;
+  color: #212529;
+  margin-bottom: 1.5rem;
+}
+
+h5 {
+  color: #111;
+}
+
+p {
+  color: #252525;
+}
+
+@media screen and (max-width: 767px) {
+  section {
+    width: 90%;
+    margin-left: 5%;
+  }
+}

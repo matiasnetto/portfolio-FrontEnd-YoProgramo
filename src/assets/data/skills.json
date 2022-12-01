@@ -1,0 +1,32 @@
+[
+  {
+    "img": "/assets/images/html.webp",
+    "name": "HTML",
+    "percentage": 100
+  },
+  {
+    "img": "/assets/images/css.webp",
+    "name": "CSS",
+    "percentage": 100
+  },
+  {
+    "img": "/assets/images/javascript.webp",
+    "name": "JavaScript",
+    "percentage": 90
+  },
+  {
+    "img": "/assets/images/react.webp",
+    "name": "React",
+    "percentage": 90
+  },
+  {
+    "img": "/assets/images/next.webp",
+    "name": "Next.js",
+    "percentage": 80
+  },
+  {
+    "img": "/assets/images/typescript.webp",
+    "name": "TypeScript",
+    "percentage": 90
+  }
+]
