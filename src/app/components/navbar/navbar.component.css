@@ -8,12 +8,23 @@
   background: #fff;
 }
 
+.container {
+  display: flex;
+}
+
+img {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
 h3 {
   font-size: 1.2rem;
   font-weight: 400;
 }
 
 a {
+  display: flex;
+  align-items: center;
   margin-right: 1.5rem;
 }
 
@@ -40,5 +51,9 @@ button:active {
 @media screen and (max-width: 767px) {
   .navbar {
     padding: 0 1rem;
+  }
+
+  a {
+    margin-right: 1rem;
   }
 }
