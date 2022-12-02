@@ -1,0 +1,39 @@
+<section>
+  <form
+    [formGroup]="form"
+    class="form-container"
+    (ngSubmit)="onFormSubmit($event)"
+  >
+    <div class="img-container">
+      <img src="/assets/icons/lock-solid.svg" alt="" />
+    </div>
+    <h5>Inicia sesion</h5>
+    <div class="input-container">
+      <label for="username">Usuario</label>
+      <input
+        formControlName="username"
+        type="text"
+        placeholder="username"
+        name="username"
+        id="username"
+      />
+      <p *ngIf="!username?.valid && username?.touched" class="error-text">
+        {{ usernameErrors }}
+      </p>
+    </div>
+    <div class="input-container">
+      <label for="password">Contraseña</label>
+      <input
+        formControlName="password"
+        type="password"
+        placeholder="password"
+        name="password"
+        id="password"
+      />
+      <p *ngIf="!password?.valid && password?.touched" class="error-text">
+        {{ passwordErrors }}
+      </p>
+    </div>
+    <input type="submit" value="Iniciar sesion" />
+  </form>
+</section>

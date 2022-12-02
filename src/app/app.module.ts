@@ -11,6 +11,9 @@ import { ExperienceSectionComponent } from './components/experience-section/expe
 import { EducationSectionComponent } from './components/education-section/education-section.component';
 import { SkillsSectionComponent } from './components/skills-section/skills-section.component';
 import { ProjectsSectionComponent } from './components/projects-section/projects-section.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { HomeComponent } from './components/home/home.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,8 +25,15 @@ import { ProjectsSectionComponent } from './components/projects-section/projects
     EducationSectionComponent,
     SkillsSectionComponent,
     ProjectsSectionComponent,
+    LoginFormComponent,
+    HomeComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
