@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 448 512"
+   version="1.1"
+   id="svg250"
+   sodipodi:docname="lock-solid.svg"
+   inkscape:version="1.2 (1:1.2.1+202207142221+cd75a1ee6d)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs254" />
+  <sodipodi:namedview
+     id="namedview252"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="162.28101"
+     inkscape:cy="435.57778"
+     inkscape:window-width="1920"
+     inkscape:window-height="1052"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg250" />
+  <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path
+     d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"
+     id="path248"
+     style="fill:#ffffff;fill-opacity:1" />
+  <g
+     id="g4235"
+     style="fill:#0d6efd;fill-opacity:1"
+     transform="matrix(1.2739244,0,0,1.2739244,-61.391121,-99.475183)">
+    <ellipse
+       style="opacity:1;fill:#0d6efd;fill-opacity:1;stroke:none;stroke-width:45.0052;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.924561;paint-order:stroke fill markers"
+       id="path2523"
+       cx="224.1111"
+       cy="331.84402"
+       rx="22.939159"
+       ry="22.932882" />
+    <circle
+       style="fill:#0d6efd;fill-opacity:1;stroke:none;stroke-width:44.9991;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.924561;paint-order:stroke fill markers"
+       id="path2523-3"
+       cx="224.12921"
+       cy="394.45258"
+       r="22.932882" />
+    <rect
+       style="opacity:1;fill:#0d6efd;fill-opacity:1;stroke:none;stroke-width:28.617;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.924561;paint-order:stroke fill markers"
+       id="rect4097"
+       width="63.510235"
+       height="45.854542"
+       x="331.60129"
+       y="-247.04572"
+       rx="0"
+       transform="rotate(90)" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="guide"
+     style="display:none">
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#25259b;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.924561;paint-order:stroke fill markers"
+       d="M 0.00184512,0.00536782 448.0203,512.03878"
+       id="path4163" />
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#25259b;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.924561;paint-order:stroke fill markers"
+       d="M 447.99359,0.01255302 -0.12373352,512.14885"
+       id="path4228" />
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#25259b;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.924561;paint-order:stroke fill markers"
+       d="M 224.06033,255.81242 V 594.5282"
+       id="path4230" />
+  </g>
+</svg>
