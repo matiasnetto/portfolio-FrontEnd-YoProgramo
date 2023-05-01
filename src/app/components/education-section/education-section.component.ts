@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BASE_URL } from 'src/config';
 import {
   IEducationItem,
   PortfolioService,
@@ -11,6 +12,7 @@ import {
 })
 export class EducationSectionComponent implements OnInit {
   education: IEducationItem[] = [];
+  BASE_URL = BASE_URL;
 
   constructor(private datosPortfolio: PortfolioService) {}
 
