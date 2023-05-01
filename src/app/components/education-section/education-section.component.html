@@ -1,7 +1,7 @@
 <section>
   <h3 class="section-title">3 - Educacion</h3>
   <div *ngFor="let e of education" class="card">
-    <img [src]="e.img" [alt]="e.title" />
+    <img [src]="BASE_URL + e.img" [alt]="e.title" />
     <div class="card-body">
       <h5>{{ e.title }}</h5>
       <p class="card-text">
