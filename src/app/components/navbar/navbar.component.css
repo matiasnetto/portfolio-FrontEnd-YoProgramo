@@ -1,14 +1,85 @@
 .navbar {
   width: 100%;
-  height: 3.5rem;
+  height: 4.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 3.5rem 0 3.5rem;
-  background: #fff;
+  padding: 0 8vw;
+  padding-top: 1rem;
+
+  animation: navbar-apear 1s backwards 0.3s;
+}
+
+@keyframes navbar-apear {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0%;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 100%;
+  }
+}
+
+h3 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #fff;
+  text-shadow: 0 0 20px #000c;
 }
 
 .container {
+  display: flex;
+}
+
+.nav-links-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40vw;
+
+  transform: translateY(8px);
+}
+
+li {
+  list-style: none;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  font-size: 1.2rem;
+  margin: 0 1.5rem;
+  text-shadow: 0 0 20px #000c;
+}
+
+li:hover > .underline {
+  height: 1px;
+  width: 100%;
+}
+
+.nav-link {
+  margin: 0;
+  color: #fff;
+  text-decoration: none;
+}
+
+.underline {
+  display: block;
+  height: 1px;
+  width: 0;
+  background: #fff;
+  transition: width 0.5s;
+}
+
+/* .underline--activated {
+  width: 100%;
+} */
+
+.social-media-container {
   display: flex;
 }
 
@@ -17,43 +88,162 @@ img {
   height: 1.8rem;
 }
 
-h3 {
-  font-size: 1.2rem;
-  font-weight: 400;
-}
-
-a {
+.social-media-link {
   display: flex;
   align-items: center;
   margin-right: 1.5rem;
+  color: #fff;
+  text-decoration: none;
+
+  transition: all 0.5s;
 }
 
-button {
-  padding: 0.6rem 0.8rem;
-  background-color: #0d6efd;
+.social-media-link:hover {
+  transform: translateY(-5px);
+  filter: brightness(120%);
+}
+
+.login-button {
+  padding: 0.5rem 0.7rem;
+  background-color: #fff;
   border: none;
   border-radius: 5px;
   color: #fff;
   font-size: 1rem;
   cursor: pointer;
+  color: #000;
+  box-shadow: 0 0 20px #000a;
 
   transition: background-color 0.2s;
 }
 
-button:hover {
-  background-color: #005eed;
+.login-button:hover {
+  background-color: #eee;
 }
 
-button:active {
-  background-color: #005ecd;
+.login-button:active {
+  background-color: #aaa;
+}
+
+.hamburger {
+  display: none;
 }
 
 @media screen and (max-width: 767px) {
   .navbar {
+    width: 100vw;
     padding: 0 1rem;
+    animation: none;
+  }
+
+  .nav-links-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  li {
+    margin: 0.5rem 0;
   }
 
   a {
-    margin-right: 1rem;
+    font-size: 1.4rem;
+  }
+
+  .container {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 100%;
+    top: 0;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10vh;
+    background-color: #000e;
+
+    transition: transform 0.5s;
+  }
+
+  .container--open {
+    transform: translateX(-100%);
+    backdrop-filter: blur(5px);
+  }
+
+  .social-media-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 0rem;
+    transform: translateY(10vh);
+  }
+
+  /* HAMBURGER */
+
+  .hamburger {
+    position: relative;
+    z-index: 999;
+    display: block;
+  }
+
+  .checkbox {
+    position: relative;
+    display: block;
+    height: 32px;
+    width: 32px;
+    z-index: 5;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .hamburger-lines {
+    display: block;
+    height: 23px;
+    width: 29px;
+    position: absolute;
+    top: 7px;
+    right: 5px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hamburger-lines .line {
+    display: block;
+    height: 3px;
+    width: 100%;
+    border-radius: 10px;
+    background: #fff;
+  }
+
+  .hamburger-lines .line1 {
+    transform-origin: 0% 0%;
+    transition: transform 0.3s ease-in-out;
+  }
+  .hamburger-lines .line2 {
+    transition: opacity 0.2s ease-in-out;
+  }
+  .hamburger-lines .line3 {
+    transform-origin: 0% 100%;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+    transform: rotate(45deg);
+  }
+
+  input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+    opacity: 0;
+  }
+
+  input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+    transform: rotate(-45deg);
+  }
+
+  input[type="checkbox"]:checked ~ .logo {
+    display: none;
   }
 }
