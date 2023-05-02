@@ -1,19 +1,23 @@
 <section *ngIf="data">
-  <h3 class="section-title">1 - About me</h3>
+  <app-section-title title="About me" number="1"></app-section-title>
   <div class="container">
-    <div class="aside-card">
-      <img
-        [src]="data.profile_img_url"
-        class="img-thumbnail rounded-circle img-me"
-      />
-      <h1 class="fs-3 text-center">{{ data.name }}</h1>
-      <h2 class="fs-5 text-center">{{ data.occupation }}</h2>
+    <div class="about-sidebar">
+      <div class="img-container">
+        <img [src]="data.profile_img_url" />
+      </div>
+      <h2>{{ data.name }}</h2>
+      <h3>{{ data.occupation }}</h3>
     </div>
-    <div class="card">
+    <div class="about-card">
       <p class="card__title">Bienvenido!</p>
-      <p class="card__content">
-        {{ data.description }}
-      </p>
+      <div>
+        <p
+          *ngFor="let paragraph of data.description.split('\n')"
+          class="card__paragraph"
+        >
+          {{ paragraph }}
+        </p>
+      </div>
     </div>
   </div>
 </section>

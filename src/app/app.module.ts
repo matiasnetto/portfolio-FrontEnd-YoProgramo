@@ -14,6 +14,7 @@ import { ProjectsSectionComponent } from './components/projects-section/projects
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { HomeComponent } from './components/home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SectionTitleComponent } from './components/shared/section-title/section-title.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProjectsSectionComponent,
     LoginFormComponent,
     HomeComponent,
+    SectionTitleComponent,
   ],
   imports: [
     BrowserModule,
