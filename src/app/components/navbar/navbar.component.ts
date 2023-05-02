@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { IAboutMe, PortfolioService } from 'src/app/services/portfolio.service';
 import { BASE_URL } from 'src/config';
 
 @Component({
@@ -6,6 +7,12 @@ import { BASE_URL } from 'src/config';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent {
-  BASE_URL = BASE_URL;
+export class NavbarComponent implements OnInit {
+  data: IAboutMe | null = null;
+
+  constructor(private service: PortfolioService) {}
+
+  ngOnInit(): void {
+    this.service.getAboutMe().subscribe((data) => (this.data = data));
+  }
 }

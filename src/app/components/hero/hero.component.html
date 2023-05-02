@@ -1,8 +1,11 @@
-<header>
-  <h1 class="text-shadow">Matias Netto</h1>
+<header
+  *ngIf="data"
+  [ngStyle]="{ 'background-image': 'url(' + data.background_img_header_url }"
+>
+  <h1 class="text-shadow">{{ data.name }}</h1>
 
   <h2 class="text-shadow">
-    <span class="text-primary"><</span> Full Stack Developer Jr
+    <span class="text-primary"><</span>{{ data.occupation }}
     <span class="text-primary">/></span>
   </h2>
 </header>

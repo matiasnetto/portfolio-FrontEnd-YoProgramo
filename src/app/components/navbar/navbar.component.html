@@ -1,14 +1,18 @@
-<nav class="navbar">
+<nav class="navbar" *ngIf="data">
   <h3>#YoProgramo</h3>
   <div class="container">
-    <a href="https://www.linkedin.com/in/matiasnetto/">
+    <a *ngFor="let contact of data.social_media" [href]="contact.url">
+      <img [src]="contact.img" [alt]="contact.name" />
+    </a>
+    <!-- <a href="https://www.linkedin.com/in/matiasnetto/">
       <!-- <i class="fa-brands fa-linkedin"></i> -->
-      <img [src]="BASE_URL + '/assets/icons/linkedin.svg'" alt="" />
-    </a>
-    <a href="https://github.com/matiasnetto">
-      <!-- <i class="fa-brands fa-github"></i> -->
-      <img [src]="BASE_URL + '/assets/icons/github.svg'" alt="" />
-    </a>
+    <!-- <img [src]="BASE_URL + '/assets/icons/linkedin.svg'" alt="" /> -->
+    <!-- </a> -->
+    <!-- <a href="https://github.com/matiasnetto"> -->
+    <!-- <i class="fa-brands fa-github"></i> -->
+    <!-- <img [src]="BASE_URL + '/assets/icons/github.svg'" alt="" /> -->
+    <!-- </a> -->
+    -->
     <button routerLink="/login">Login</button>
   </div>
 </nav>

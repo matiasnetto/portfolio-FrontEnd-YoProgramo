@@ -2,7 +2,7 @@
   <h3 class="section-title">4 - Proyectos</h3>
   <div class="grid-container">
     <div *ngFor="let p of projects" class="card">
-      <img [src]="p.img" alt="" />
+      <img [src]="p.image_url" alt="" />
       <div class="card-body">
         <h5>{{ p.title }}</h5>
         <p>
@@ -10,13 +10,13 @@
         </p>
         <div class="buttons-container">
           <a
-            [href]="p.siteURL"
+            [href]="p.project_url"
             role="button"
             class="btn btn-outline-primary mx-md-3 mx-2"
             >Ver sitio Web</a
           >
           <a
-            [href]="p.codeURL"
+            [href]="p.github_url"
             role="button"
             class="btn btn-outline-primary mx-md-3 mx-2"
             >Ver codigo</a

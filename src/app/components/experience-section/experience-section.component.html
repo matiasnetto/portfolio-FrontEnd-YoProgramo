@@ -3,14 +3,14 @@
   <div class="grid-container">
     <!-- ITEMS -->
     <div *ngFor="let e of experience" class="card">
-      <img [src]="e.img" alt="" />
+      <img [src]="e.image_url" alt="" />
       <div class="card-body">
-        <h5>{{ e.title }}</h5>
+        <h5>{{ e.enterprise_name }}</h5>
         <p>
           {{ e.description }}
         </p>
         <p class="text-muted">
-          <small>{{ e.role }}</small>
+          <small>{{ e.job }}</small>
         </p>
       </div>
     </div>

@@ -1,14 +1,14 @@
 <section>
   <h3 class="section-title">3 - Educacion</h3>
   <div *ngFor="let e of education" class="card">
-    <img [src]="BASE_URL + e.img" [alt]="e.title" />
+    <img [src]="BASE_URL + e.image_url" [alt]="e.title" />
     <div class="card-body">
       <h5>{{ e.title }}</h5>
       <p class="card-text">
-        {{ e.description }}
+        {{ e.institute }}
       </p>
       <p class="text-muted">
-        <small>{{ e.timeRange }}</small>
+        <small>{{ e.started_at | date : "MMMM yyy" }}</small>
       </p>
     </div>
   </div>
