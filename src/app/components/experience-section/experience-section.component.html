@@ -1,17 +1,28 @@
 <section>
-  <h3 class="section-title">2 - Experiencia</h3>
+  <app-section-title number="2" title="Experiencia"></app-section-title>
   <div class="grid-container">
-    <!-- ITEMS -->
-    <div *ngFor="let e of experience" class="card">
-      <img [src]="e.image_url" alt="" />
-      <div class="card-body">
-        <h5>{{ e.enterprise_name }}</h5>
-        <p>
-          {{ e.description }}
-        </p>
-        <p class="text-muted">
-          <small>{{ e.job }}</small>
-        </p>
+    <div class="cards-container" *ngFor="let e of experience">
+      <div class="timeline">
+        <div class="line line-top" *ngIf="e.id != experience[0].id"></div>
+        <div class="line line-down"></div>
+        <div class="bullet"></div>
+      </div>
+      <div class="card">
+        <img [src]="e.image_url" alt="" />
+        <div class="card-body">
+          <h5>{{ e.enterprise_name }}</h5>
+          <p>
+            {{ e.description }}
+          </p>
+          <p class="text-muted">
+            <small>{{ e.job }} </small>
+            <small style="display: block">
+              ( {{ e.started_at | date : "MMM yyy" }} -
+              {{ e.end_at | date : "MMM yyy" }}
+              {{ !e.end_at ? "present " : "" }})
+            </small>
+          </p>
+        </div>
       </div>
     </div>
   </div>
