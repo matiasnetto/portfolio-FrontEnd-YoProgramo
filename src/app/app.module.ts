@@ -15,6 +15,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { HomeComponent } from './components/home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SectionTitleComponent } from './components/shared/section-title/section-title.component';
+import { TechnologiesDisplayComponent } from './components/projects-section/technologies-display/technologies-display.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { SectionTitleComponent } from './components/shared/section-title/section
     LoginFormComponent,
     HomeComponent,
     SectionTitleComponent,
+    TechnologiesDisplayComponent,
   ],
   imports: [
     BrowserModule,

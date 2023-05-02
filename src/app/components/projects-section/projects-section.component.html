@@ -1,26 +1,26 @@
 <section>
-  <h3 class="section-title">4 - Proyectos</h3>
+  <app-section-title number="4" title="Proyectos"></app-section-title>
   <div class="grid-container">
     <div *ngFor="let p of projects" class="card">
-      <img [src]="p.image_url" alt="" />
+      <div class="img-container">
+        <div class="technologies-display-container">
+          <app-technologies-display
+            [technologies]="p.technologies"
+          ></app-technologies-display>
+        </div>
+        <img [src]="p.image_url" alt="" />
+      </div>
       <div class="card-body">
         <h5>{{ p.title }}</h5>
         <p>
           {{ p.description }}
         </p>
+        <p>
+          <small>( {{ p.end_at | date : "MMM yyy" }} )</small>
+        </p>
         <div class="buttons-container">
-          <a
-            [href]="p.project_url"
-            role="button"
-            class="btn btn-outline-primary mx-md-3 mx-2"
-            >Ver sitio Web</a
-          >
-          <a
-            [href]="p.github_url"
-            role="button"
-            class="btn btn-outline-primary mx-md-3 mx-2"
-            >Ver codigo</a
-          >
+          <a [href]="p.project_url" role="button">Ver sitio Web</a>
+          <a [href]="p.github_url" role="button">Ver codigo</a>
         </div>
       </div>
     </div>
