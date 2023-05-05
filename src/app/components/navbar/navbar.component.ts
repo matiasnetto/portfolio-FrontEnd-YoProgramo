@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { IAboutMe, PortfolioService } from 'src/app/services/portfolio.service';
 import { BASE_URL } from 'src/config';
 
@@ -10,6 +11,7 @@ import { BASE_URL } from 'src/config';
 export class NavbarComponent implements OnInit {
   data: IAboutMe | null = null;
   menuOpened: boolean = false;
+  editMode: boolean = false;
 
   links = [
     { link: 'about', title: 'About' },
@@ -19,13 +21,25 @@ export class NavbarComponent implements OnInit {
     { link: 'projects', title: 'Projects' },
   ];
 
-  constructor(private service: PortfolioService) {}
+  constructor(
+    private portfolioService: PortfolioService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
-    this.service.getAboutMe().subscribe((data) => (this.data = data));
+    this.portfolioService.getAboutMe().subscribe((data) => (this.data = data));
+    this.authService.$isLogedIn.subscribe((data) => (this.editMode = data));
   }
 
   public toggleMenu() {
     this.menuOpened = !this.menuOpened;
+  }
+
+  public logIn() {
+    this.authService.logIn('juan', '123');
+  }
+
+  public logOut() {
+    this.authService.logOut();
   }
 }

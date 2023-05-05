@@ -1,5 +1,6 @@
 <section>
   <app-section-title number="4" title="Hard & Soft Skills"></app-section-title>
+  <button *ngIf="editMode" class="add-skill-btn">Add Skill</button>
   <div class="grid-container">
     <div *ngFor="let s of skills" class="card">
       <img [src]="s.image_url" alt="" class="rounded skills-img" />

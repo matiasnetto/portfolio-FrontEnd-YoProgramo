@@ -21,7 +21,12 @@
       >
         <img [src]="contact.img" [alt]="contact.name" />
       </a>
-      <button routerLink="/login" class="login-button">Login</button>
+      <button *ngIf="editMode" (click)="logOut()" class="login-button">
+        Logout
+      </button>
+      <button *ngIf="!editMode" (click)="logIn()" class="login-button">
+        Login
+      </button>
     </div>
   </div>
   <div class="hamburger">
