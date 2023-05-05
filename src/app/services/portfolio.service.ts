@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { BASE_URL } from 'src/config';
 
 export interface IExperienceItem {
@@ -69,26 +69,81 @@ export interface IAboutMe {
 })
 export class PortfolioService {
   private BACKEND_URL: string = 'http://192.168.1.40:3000/api';
+  aboutMeData = new BehaviorSubject<IAboutMe | null>(null);
+  experienceData = new BehaviorSubject<IExperienceItem[]>([]);
+  educationData = new BehaviorSubject<IEducationItem[]>([]);
+  skillsData = new BehaviorSubject<ISkill[]>([]);
+  projectsData = new BehaviorSubject<IProject[]>([]);
 
   constructor(private http: HttpClient) {}
 
-  getAboutMe(): Observable<IAboutMe> {
-    return this.http.get<IAboutMe>(this.BACKEND_URL + '/persons/1');
+  public getAboutMe(): Observable<IAboutMe | null> {
+    if (!this.aboutMeData.value) this.updateAboutMeData();
+
+    return this.aboutMeData.asObservable();
   }
 
-  getExperience(): Observable<IExperienceItem[]> {
-    return this.http.get<IExperienceItem[]>(this.BACKEND_URL + '/experience');
+  public getExperience(): Observable<IExperienceItem[]> {
+    if (this.experienceData.value.length == 0) this.updateExperienceData();
+
+    return this.experienceData.asObservable();
   }
 
-  getEducation(): Observable<IEducationItem[]> {
-    return this.http.get<IEducationItem[]>(this.BACKEND_URL + '/education');
+  public getEducation(): Observable<IEducationItem[]> {
+    if (this.educationData.value.length == 0) this.updateEducationData();
+
+    return this.educationData.asObservable();
   }
 
-  getSkills(): Observable<ISkill[]> {
-    return this.http.get<ISkill[]>(this.BACKEND_URL + '/skills');
+  public getSkills(): Observable<ISkill[]> {
+    if (this.skillsData.value.length == 0) this.updateSkillsData();
+
+    return this.skillsData.asObservable();
   }
 
-  getProjects(): Observable<IProject[]> {
-    return this.http.get<IProject[]>(this.BACKEND_URL + '/projects');
+  public getProjects(): Observable<IProject[]> {
+    if (this.projectsData.value.length == 0) this.updateProjectsData();
+
+    return this.projectsData.asObservable();
+  }
+
+  // UPDATES
+
+  public refreshAllData(): void {
+    this.updateAboutMeData();
+    this.updateEducationData();
+    this.updateExperienceData();
+    this.updateSkillsData();
+    this.updateProjectsData();
+  }
+
+  private updateAboutMeData(): void {
+    this.http
+      .get<IAboutMe>(this.BACKEND_URL + '/persons/1')
+      .subscribe((data) => this.aboutMeData.next(data));
+  }
+
+  private updateExperienceData(): void {
+    this.http
+      .get<IExperienceItem[]>(this.BACKEND_URL + '/experience')
+      .subscribe((data) => this.experienceData.next(data));
+  }
+
+  private updateEducationData(): void {
+    this.http
+      .get<IEducationItem[]>(this.BACKEND_URL + '/education')
+      .subscribe((data) => this.educationData.next(data));
+  }
+
+  private updateSkillsData(): void {
+    this.http
+      .get<ISkill[]>(this.BACKEND_URL + '/skills')
+      .subscribe((data) => this.skillsData.next(data));
+  }
+
+  private updateProjectsData(): void {
+    this.http
+      .get<IProject[]>(this.BACKEND_URL + '/projects')
+      .subscribe((data) => this.projectsData.next(data));
   }
 }
