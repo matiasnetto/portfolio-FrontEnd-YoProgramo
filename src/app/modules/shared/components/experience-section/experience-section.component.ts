@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {
   IExperienceItem,
   PortfolioService,
-} from '../../services/portfolio.service';
+} from '../../../../services/portfolio.service';
 
 @Component({
   selector: 'experience-section',

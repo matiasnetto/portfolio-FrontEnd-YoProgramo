@@ -3,7 +3,7 @@ import { BASE_URL } from 'src/config';
 import {
   IEducationItem,
   PortfolioService,
-} from '../../services/portfolio.service';
+} from '../../../../services/portfolio.service';
 
 @Component({
   selector: 'education-section',

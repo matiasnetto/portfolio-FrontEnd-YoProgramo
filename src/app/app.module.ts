@@ -4,37 +4,16 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { HeroComponent } from './components/hero/hero.component';
-import { AboutSectionComponent } from './components/about-section/about-section.component';
-import { ExperienceSectionComponent } from './components/experience-section/experience-section.component';
-import { EducationSectionComponent } from './components/education-section/education-section.component';
-import { SkillsSectionComponent } from './components/skills-section/skills-section.component';
-import { ProjectsSectionComponent } from './components/projects-section/projects-section.component';
-import { LoginFormComponent } from './components/login-form/login-form.component';
-import { HomeComponent } from './components/home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { SectionTitleComponent } from './components/shared/section-title/section-title.component';
-import { TechnologiesDisplayComponent } from './components/projects-section/technologies-display/technologies-display.component';
+import { SharedModule } from './modules/shared/shared.module';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    HeroComponent,
-    AboutSectionComponent,
-    ExperienceSectionComponent,
-    EducationSectionComponent,
-    SkillsSectionComponent,
-    ProjectsSectionComponent,
-    LoginFormComponent,
-    HomeComponent,
-    SectionTitleComponent,
-    TechnologiesDisplayComponent,
-  ],
+  declarations: [AppComponent, LoginFormComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SharedModule,
     HttpClientModule,
     ReactiveFormsModule,
   ],
