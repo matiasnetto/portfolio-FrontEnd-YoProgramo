@@ -32,4 +32,11 @@ export class SkillsSectionComponent implements OnInit {
   openUpdateSkillsModal(skillId: number) {
     this.router.navigate(['admin', 'edit-skill', skillId]);
   }
+
+  openDeleteModal(skill: ISkill) {
+    const input = confirm(
+      `Estas seguro que deseas eliminar '${skill.technology}'?`
+    );
+    console.log('RES: ', input);
+  }
 }

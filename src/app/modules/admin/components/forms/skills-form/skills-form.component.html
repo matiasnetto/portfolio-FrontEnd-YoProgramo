@@ -25,10 +25,9 @@
     </div>
 
     <div class="input-container">
-      <label for="percent">Porcentaje:</label>
+      <label for="percent">Porcentaje: {{ skillData.value.percent }}</label>
       <input
-        type="int"
-        placeholder="percent"
+        type="range"
         formControlName="percent"
         class="text-input"
         id="percent"

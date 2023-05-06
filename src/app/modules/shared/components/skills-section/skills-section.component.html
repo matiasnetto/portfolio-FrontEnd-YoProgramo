@@ -8,18 +8,11 @@
       <button *ngIf="editMode" (click)="openUpdateSkillsModal(s.id)">
         Edit
       </button>
+      <button *ngIf="editMode" (click)="openDeleteModal(s)">Delete</button>
       <img [src]="s.image_url" alt="" class="rounded skills-img" />
       <h5 class="card__title">{{ s.technology }}</h5>
       <div class="progress">
-        <div
-          class="progress-bar progress-bar-striped progress-bar-animated"
-          role="progressbar"
-          aria-label="Animated striped example"
-          aria-valuenow="75"
-          aria-valuemin="0"
-          aria-valuemax="100"
-          [ngStyle]="{ width: s.percent + '%' }"
-        ></div>
+        <div class="progress-bar" [ngStyle]="{ width: s.percent + '%' }"></div>
         <p class="percentage">{{ s.percent }}%</p>
       </div>
       <div></div>
