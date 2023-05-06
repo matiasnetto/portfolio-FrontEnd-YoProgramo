@@ -1,0 +1,45 @@
+<div class="container">
+  <button (click)="closeModal()" class="close-btn">X</button>
+  <h3>{{ title }}</h3>
+  <form [formGroup]="skillData" (submit)="handleSubmit($event)">
+    <div class="input-container">
+      <label for="technology">Tecnologia:</label>
+      <input
+        type="text"
+        placeholder="Javascript"
+        formControlName="technology"
+        class="text-input"
+        id="technology"
+      />
+    </div>
+
+    <div class="input-container">
+      <label for="image-url">Imagen:</label>
+      <input
+        type="text"
+        placeholder="image URL"
+        formControlName="image_url"
+        class="text-input"
+        id="image-url"
+      />
+    </div>
+
+    <div class="input-container">
+      <label for="percent">Porcentaje:</label>
+      <input
+        type="int"
+        placeholder="percent"
+        formControlName="percent"
+        class="text-input"
+        id="percent"
+      />
+    </div>
+
+    <input
+      type="submit"
+      class="submit-button"
+      [value]="submitText"
+      [disabled]="!skillData.valid"
+    />
+  </form>
+</div>

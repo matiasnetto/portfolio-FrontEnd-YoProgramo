@@ -3,13 +3,9 @@
   <div class="container" [ngClass]="{ 'container--open': menuOpened }">
     <ul class="nav-links-container">
       <li *ngFor="let link of links">
-        <a
-          routerLink=""
-          [fragment]="link.link"
-          class="nav-link"
-          (click)="toggleMenu()"
-          >{{ link.title }}</a
-        >
+        <a routerLink="" class="nav-link" (click)="toggleMenu()">{{
+          link.title
+        }}</a>
         <span class="underline"></span>
       </li>
     </ul>
@@ -21,12 +17,24 @@
       >
         <img [src]="contact.img" [alt]="contact.name" />
       </a>
-      <button *ngIf="editMode" (click)="logOut()" class="login-button">
+      <a
+        *ngIf="editMode"
+        (click)="logOut()"
+        role="button"
+        routerLink="/"
+        class="login-button"
+      >
         Logout
-      </button>
-      <button *ngIf="!editMode" (click)="logIn()" class="login-button">
+      </a>
+      <a
+        *ngIf="!editMode"
+        (click)="logIn()"
+        role="button"
+        routerLink="/admin"
+        class="login-button"
+      >
         Login
-      </button>
+      </a>
     </div>
   </div>
   <div class="hamburger">
