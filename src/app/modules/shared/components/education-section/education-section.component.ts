@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BASE_URL } from 'src/config';
-import {
-  IEducationItem,
-  PortfolioService,
-} from '../../../../services/portfolio.service';
+import { IEducationItem } from 'src/app/models/education.model';
+import { EducationService } from 'src/app/services/education.service';
 
 @Component({
   selector: 'education-section',
@@ -12,12 +9,11 @@ import {
 })
 export class EducationSectionComponent implements OnInit {
   education: IEducationItem[] = [];
-  BASE_URL = BASE_URL;
 
-  constructor(private datosPortfolio: PortfolioService) {}
+  constructor(private educationService: EducationService) {}
 
   ngOnInit(): void {
-    this.datosPortfolio
+    this.educationService
       .getEducation()
       .subscribe((data) => (this.education = data));
   }

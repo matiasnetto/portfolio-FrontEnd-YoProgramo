@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  IProject,
-  PortfolioService,
-} from '../../../../services/portfolio.service';
+import { IProject } from 'src/app/models/project.model';
+import { ProjectsService } from 'src/app/services/projects.service';
 
 @Component({
   selector: 'projects-section',
@@ -12,10 +10,10 @@ import {
 export class ProjectsSectionComponent implements OnInit {
   projects: IProject[] = [];
 
-  constructor(private datosPortfolio: PortfolioService) {}
+  constructor(private projectsService: ProjectsService) {}
 
   ngOnInit(): void {
-    this.datosPortfolio.getProjects().subscribe((data) => {
+    this.projectsService.getProjects().subscribe((data) => {
       console.log(data);
       this.projects = data;
     });

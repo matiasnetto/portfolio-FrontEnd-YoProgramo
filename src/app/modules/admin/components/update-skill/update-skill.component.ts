@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ISkill } from 'src/app/services/portfolio.service';
-import { ISkillOut } from '../forms/skills-form/skills-form.component';
+import { ISkill, ISkillOut } from 'src/app/models/skill.model';
 
 @Component({
   selector: 'app-update-skill',

@@ -1,15 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ISkill } from 'src/app/services/portfolio.service';
-
-export interface ISkillOut {
-  id?: number;
-  technology: string;
-  image_url: string;
-  percent: number;
-  ord: number;
-}
+import { ISkill, ISkillOut } from 'src/app/models/skill.model';
 
 @Component({
   selector: 'app-skills-form',

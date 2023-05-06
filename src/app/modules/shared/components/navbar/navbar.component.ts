@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { IAboutMe } from 'src/app/models/about-me.model';
+import { AboutMeService } from 'src/app/services/about-me.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { IAboutMe, PortfolioService } from 'src/app/services/portfolio.service';
-import { BASE_URL } from 'src/config';
 
 @Component({
   selector: 'app-navbar',
@@ -22,12 +22,12 @@ export class NavbarComponent implements OnInit {
   ];
 
   constructor(
-    private portfolioService: PortfolioService,
+    private aboutMeService: AboutMeService,
     private authService: AuthService
   ) {}
 
   ngOnInit(): void {
-    this.portfolioService.getAboutMe().subscribe((data) => (this.data = data));
+    this.aboutMeService.getAboutMe().subscribe((data) => (this.data = data));
     this.authService.$isLogedIn.subscribe((data) => (this.editMode = data));
   }
 

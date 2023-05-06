@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IAboutMe, PortfolioService } from 'src/app/services/portfolio.service';
-import { BASE_URL } from 'src/config';
+import { IAboutMe } from 'src/app/models/about-me.model';
+import { AboutMeService } from 'src/app/services/about-me.service';
 
 @Component({
   selector: 'about-section',
@@ -10,7 +10,7 @@ import { BASE_URL } from 'src/config';
 export class AboutSectionComponent implements OnInit {
   data: IAboutMe | null = null;
 
-  constructor(private service: PortfolioService) {}
+  constructor(private service: AboutMeService) {}
   ngOnInit(): void {
     this.service.getAboutMe().subscribe((data) => (this.data = data));
   }

@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ISkill } from 'src/app/models/skill.model';
 import { AuthService } from 'src/app/services/auth.service';
-import {
-  ISkill,
-  PortfolioService,
-} from '../../../../services/portfolio.service';
+import { SkillsService } from 'src/app/services/skills.service';
 
 @Component({
   selector: 'skills-section',
@@ -17,14 +15,14 @@ export class SkillsSectionComponent implements OnInit {
   openModal = false;
 
   constructor(
-    private datosPortfolio: PortfolioService,
+    private skillsService: SkillsService,
     private authService: AuthService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
     this.authService.$isLogedIn.subscribe((data) => (this.editMode = data));
-    this.datosPortfolio.getSkills().subscribe((data) => (this.skills = data));
+    this.skillsService.getSkills().subscribe((data) => (this.skills = data));
   }
 
   openNewSkillsModal() {

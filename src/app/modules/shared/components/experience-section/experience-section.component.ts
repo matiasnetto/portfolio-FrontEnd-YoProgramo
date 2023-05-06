@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  IExperienceItem,
-  PortfolioService,
-} from '../../../../services/portfolio.service';
+import { IExperienceItem } from 'src/app/models/experience.model';
+import { ExperienceService } from 'src/app/services/experience.service';
 
 @Component({
   selector: 'experience-section',
@@ -12,10 +10,10 @@ import {
 export class ExperienceSectionComponent implements OnInit {
   experience: IExperienceItem[] = [];
 
-  constructor(private datosPortfolio: PortfolioService) {}
+  constructor(private experienceService: ExperienceService) {}
 
   ngOnInit(): void {
-    this.datosPortfolio
+    this.experienceService
       .getExperience()
       .subscribe((data) => (this.experience = data));
   }

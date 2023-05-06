@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ISkill } from 'src/app/services/portfolio.service';
+import { ISkill } from 'src/app/models/skill.model';
 
 @Component({
   selector: 'app-technologies-display',
