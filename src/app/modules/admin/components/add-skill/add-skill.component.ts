@@ -5,7 +5,7 @@ import { ISkillOut } from '../forms/skills-form/skills-form.component';
 @Component({
   selector: 'app-add-skill',
   templateUrl: './add-skill.component.html',
-  styleUrls: ['./add-skill.component.css'],
+  styleUrls: ['../modals.css'],
 })
 export class AddSkillComponent {
   constructor(private router: Router) {}

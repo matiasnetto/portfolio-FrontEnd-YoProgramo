@@ -7,8 +7,9 @@ import { SharedModule } from '../shared/shared.module';
 import { SkillsFormComponent } from './components/forms/skills-form/skills-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddSkillComponent } from './components/add-skill/add-skill.component';
+import { UpdateSkillComponent } from './components/update-skill/update-skill.component';
 @NgModule({
-  declarations: [AdminComponent, HomeAdminComponent, SkillsFormComponent, AddSkillComponent],
+  declarations: [AdminComponent, HomeAdminComponent, SkillsFormComponent, AddSkillComponent, UpdateSkillComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

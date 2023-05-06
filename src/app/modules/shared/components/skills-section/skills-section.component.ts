@@ -31,7 +31,7 @@ export class SkillsSectionComponent implements OnInit {
     this.router.navigate(['admin', 'add-skill']);
   }
 
-  // openUpdateSkillsModal(skillId: number) {
-  //   this.router.navigate(['admin', 'edit-skill', skillId]);
-  // }
+  openUpdateSkillsModal(skillId: number) {
+    this.router.navigate(['admin', 'edit-skill', skillId]);
+  }
 }
