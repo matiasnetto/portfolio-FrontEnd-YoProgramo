@@ -1,0 +1,61 @@
+<div class="container">
+  <button (click)="closeModal()" class="close-btn">X</button>
+  <h3>{{ title }}</h3>
+  <form [formGroup]="educationData" (submit)="handleSubmit($event)">
+    <div class="input-container">
+      <label for="title">Titulo:</label>
+      <input
+        type="text"
+        placeholder="Titulo"
+        formControlName="title"
+        class="text-input"
+        id="title"
+      />
+    </div>
+    <div class="input-container">
+      <label for="institute">Instituto:</label>
+      <input
+        type="text"
+        placeholder="Instituto"
+        formControlName="institute"
+        class="text-input"
+        id="institute"
+      />
+    </div>
+    <div class="input-container">
+      <label for="image_url">URL de la imagen:</label>
+      <input
+        type="text"
+        placeholder="https://miweb.com/image.jpeg"
+        formControlName="image_url"
+        class="text-input"
+        id="image_url"
+      />
+    </div>
+    <div class="input-container">
+      <label for="started_at">Fecha de inicio:</label>
+      <input
+        type="date"
+        formControlName="started_at"
+        class="date-input"
+        id="started_at"
+      />
+    </div>
+    <div class="input-container">
+      <label for="end_at">Fecha de finalizacion:</label>
+      <input
+        type="date"
+        formControlName="end_at"
+        class="date-input"
+        id="end_at"
+      />
+    </div>
+
+    <input
+      type="submit"
+      class="submit-button"
+      [value]="submitText"
+      [disabled]="!educationData.valid"
+    />
+  </form>
+</div>
