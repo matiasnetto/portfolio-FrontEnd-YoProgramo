@@ -5,7 +5,7 @@ import { ISkill, ISkillOut } from 'src/app/models/skill.model';
 @Component({
   selector: 'app-skills-form',
   templateUrl: './skills-form.component.html',
-  styleUrls: ['./modals.css'],
+  styleUrls: ['../forms.css'],
 })
 export class SkillsFormComponent implements OnInit {
   @Output() onSubmit = new EventEmitter<ISkillOut>();

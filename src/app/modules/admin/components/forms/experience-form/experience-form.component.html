@@ -1,0 +1,104 @@
+<div class="container">
+  <button (click)="closeModal()" class="close-btn">X</button>
+  <h3>{{ title }}</h3>
+  <form [formGroup]="experienceData" (submit)="handleSubmit($event)">
+    <!-- <div class="input-container">
+      <label for="technology">Tecnologia:</label>
+      <input
+        type="text"
+        placeholder="Javascript"
+        formControlName="technology"
+        class="text-input"
+        id="technology"
+      />
+    </div>
+
+    <div class="input-container">
+      <label for="image-url">Imagen:</label>
+      <input
+        type="text"
+        placeholder="image URL"
+        formControlName="image_url"
+        class="text-input"
+        id="image-url"
+      />
+    </div>
+
+    <div class="input-container">
+      <label for="percent">Porcentaje: {{ experienceData.value.percent }}</label>
+      <input
+        type="range"
+        formControlName="percent"
+        class="text-input"
+        id="percent"
+      />
+    </div>
+ -->
+
+    <div class="input-container">
+      <label for="enterprise_name">Nombre de la empresa:</label>
+      <input
+        type="text"
+        placeholder="Empresa"
+        formControlName="enterprise_name"
+        class="text-input"
+        id="enterprise_name"
+      />
+    </div>
+    <div class="input-container">
+      <label for="job">Puesto de trabajo:</label>
+      <input
+        type="text"
+        placeholder="Full Stack"
+        formControlName="job"
+        class="text-input"
+        id="job"
+      />
+    </div>
+    <div class="input-container">
+      <label for="description">Descripcion:</label>
+      <textarea
+        type="text"
+        placeholder="Descripcion"
+        formControlName="description"
+        class="text-area-input"
+        id="description"
+      ></textarea>
+    </div>
+    <div class="input-container">
+      <label for="image_url">URL de la imagen:</label>
+      <input
+        type="text"
+        placeholder="https://miweb.com/image.jpeg"
+        formControlName="image_url"
+        class="text-input"
+        id="image_url"
+      />
+    </div>
+    <div class="input-container">
+      <label for="started_at">Fecha de inicio:</label>
+      <input
+        type="date"
+        formControlName="started_at"
+        class="date-input"
+        id="started_at"
+      />
+    </div>
+    <div class="input-container">
+      <label for="end_at">Fecha de finalizacion:</label>
+      <input
+        type="date"
+        formControlName="end_at"
+        class="date-input"
+        id="end_at"
+      />
+    </div>
+
+    <input
+      type="submit"
+      class="submit-button"
+      [value]="submitText"
+      [disabled]="!experienceData.valid"
+    />
+  </form>
+</div>
