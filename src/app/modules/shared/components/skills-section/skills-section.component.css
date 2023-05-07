@@ -67,7 +67,7 @@ img {
   text-align: center;
   font-size: 0.8rem;
 
-  animation: 5s bar-animation linear infinite;
+  animation: 10s bar-animation linear infinite;
 }
 
 @keyframes bar-animation {
@@ -108,5 +108,9 @@ img {
 
   .edit-controls {
     flex-direction: column;
+  }
+
+  .progress-bar {
+    animation: 15s bar-animation linear infinite;
   }
 }

@@ -70,15 +70,22 @@
 /* CARD */
 
 .card {
-  display: flex;
   min-height: 20vh;
-  /* height: 20vh; */
-  /* height: fit-content; */
+  display: flex;
   align-items: center;
+  position: relative;
   padding: 1rem 2rem;
   border: 1px solid #0000002d;
   border-radius: 0.5rem;
   margin: 2rem 0;
+}
+
+.admin-buttons {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 5;
+  display: flex;
 }
 
 img {
@@ -123,5 +130,10 @@ p {
 
   img {
     height: 10vh;
+  }
+
+  .admin-buttons {
+    top: -1rem;
+    /* flex-direction: column; */
   }
 }

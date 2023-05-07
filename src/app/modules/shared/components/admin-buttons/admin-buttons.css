@@ -28,6 +28,6 @@ img {
 @media screen and (max-width: 767px) {
   button {
     margin-bottom: 1rem;
-    margin-left: 0;
+    /* margin-left: 0; */
   }
 }

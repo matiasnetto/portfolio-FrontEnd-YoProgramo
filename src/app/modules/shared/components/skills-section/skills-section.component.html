@@ -4,8 +4,8 @@
     *ngIf="editMode"
     (click)="openNewSkillsModal()"
     class="add-skill-btn"
-    message="Add Skill"
-  ></app-add-btn>
+    >Add Skill</app-add-btn
+  >
   <div class="grid-container">
     <div *ngFor="let s of skills" class="card">
       <div *ngIf="editMode" class="edit-controls">

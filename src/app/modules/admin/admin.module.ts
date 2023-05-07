@@ -8,8 +8,20 @@ import { SkillsFormComponent } from './components/forms/skills-form/skills-form.
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddSkillComponent } from './components/add-skill/add-skill.component';
 import { UpdateSkillComponent } from './components/update-skill/update-skill.component';
+import { ExperienceFormComponent } from './components/forms/experience-form/experience-form.component';
+import { AddExperienceComponent } from './components/add-experience/add-experience.component';
+import { EditExperienceComponent } from './components/edit-experience/edit-experience.component';
 @NgModule({
-  declarations: [AdminComponent, HomeAdminComponent, SkillsFormComponent, AddSkillComponent, UpdateSkillComponent],
+  declarations: [
+    AdminComponent,
+    HomeAdminComponent,
+    SkillsFormComponent,
+    AddSkillComponent,
+    UpdateSkillComponent,
+    ExperienceFormComponent,
+    AddExperienceComponent,
+    EditExperienceComponent,
+  ],
   imports: [
     CommonModule,
     AdminRoutingModule,
