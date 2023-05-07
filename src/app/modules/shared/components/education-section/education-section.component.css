@@ -2,6 +2,7 @@
   /* display: grid; */
   /* grid-template-columns: 1fr 4fr; */
   display: flex;
+  position: relative;
   padding: 1rem;
   border: 1px solid #0000002d;
   border-radius: 0.5rem;
@@ -38,6 +39,13 @@ p {
   font-size: 1rem;
 }
 
+.admin-buttons {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  display: flex;
+}
+
 @media screen and (max-width: 767px) {
   .card {
     grid-template-columns: 1fr;
@@ -46,5 +54,9 @@ p {
 
   .card-body {
     margin: 0.5rem 0 0 0;
+  }
+
+  .admin-buttons {
+    top: -1rem;
   }
 }

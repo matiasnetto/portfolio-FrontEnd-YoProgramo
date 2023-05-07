@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { IEducationItem } from 'src/app/models/education.model';
+import { Router } from '@angular/router';
+import {
+  IEducationItem,
+  IEducationItemOut,
+} from 'src/app/models/education.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { EducationService } from 'src/app/services/education.service';
 
 @Component({
@@ -9,12 +14,34 @@ import { EducationService } from 'src/app/services/education.service';
 })
 export class EducationSectionComponent implements OnInit {
   education: IEducationItem[] = [];
+  editMode: boolean = false;
 
-  constructor(private educationService: EducationService) {}
+  constructor(
+    private educationService: EducationService,
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.educationService
       .getEducation()
       .subscribe((data) => (this.education = data));
+
+    this.authService.$isLogedIn.subscribe((data) => (this.editMode = data));
+  }
+
+  openNewEducationModal() {
+    this.router.navigate(['admin', 'add-education']);
+  }
+
+  openUpdateModal(experienceId: number) {
+    this.router.navigate(['admin', 'edit-education', experienceId]);
+  }
+
+  openDeleteModal(education: IEducationItem) {
+    const input = confirm(
+      `Estas seguro que deseas eliminar tu titulo '${education.title}' en '${education.institute}'?`
+    );
+    console.log('RES: ', input);
   }
 }

@@ -11,6 +11,9 @@ import { UpdateSkillComponent } from './components/update-skill/update-skill.com
 import { ExperienceFormComponent } from './components/forms/experience-form/experience-form.component';
 import { AddExperienceComponent } from './components/add-experience/add-experience.component';
 import { EditExperienceComponent } from './components/edit-experience/edit-experience.component';
+import { EducationFormComponent } from './components/forms/education-form/education-form.component';
+import { AddEducationComponent } from './components/add-education/add-education.component';
+import { EditEducationComponent } from './components/edit-education/edit-education.component';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -21,6 +24,9 @@ import { EditExperienceComponent } from './components/edit-experience/edit-exper
     ExperienceFormComponent,
     AddExperienceComponent,
     EditExperienceComponent,
+    EducationFormComponent,
+    AddEducationComponent,
+    EditEducationComponent,
   ],
   imports: [
     CommonModule,

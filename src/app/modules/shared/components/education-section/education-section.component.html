@@ -1,6 +1,13 @@
 <section>
   <app-section-title number="3" title="Educacion"></app-section-title>
+  <app-add-btn *ngIf="editMode" (click)="openNewEducationModal()"
+    >Add Education</app-add-btn
+  >
   <div *ngFor="let e of education" class="card">
+    <div *ngIf="editMode" class="admin-buttons">
+      <app-edit-btn (click)="openUpdateModal(e.id)"></app-edit-btn>
+      <app-delete-btn (click)="openDeleteModal(e)"></app-delete-btn>
+    </div>
     <img [src]="e.image_url" [alt]="e.title" />
     <div class="card-body">
       <h5>{{ e.title }}</h5>
