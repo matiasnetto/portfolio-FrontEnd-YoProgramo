@@ -1,7 +1,14 @@
 <section>
   <app-section-title number="4" title="Proyectos"></app-section-title>
+  <app-add-btn *ngIf="editMode" (click)="openNewProjectModal()"
+    >Add Project</app-add-btn
+  >
   <div class="grid-container">
     <div *ngFor="let p of projects" class="card">
+      <div *ngIf="editMode" class="admin-buttons">
+        <app-edit-btn (click)="openUpdateModal(p.id)"></app-edit-btn>
+        <app-delete-btn (click)="openDeleteModal(p)"></app-delete-btn>
+      </div>
       <div class="img-container">
         <div class="technologies-display-container">
           <app-technologies-display

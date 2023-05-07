@@ -14,6 +14,10 @@ import { EditExperienceComponent } from './components/edit-experience/edit-exper
 import { EducationFormComponent } from './components/forms/education-form/education-form.component';
 import { AddEducationComponent } from './components/add-education/add-education.component';
 import { EditEducationComponent } from './components/edit-education/edit-education.component';
+import { ProjectsFormComponent } from './components/forms/projects-form/projects-form.component';
+import { AddProjectComponent } from './components/add-project/add-project.component';
+import { AddSkillFormComponent } from './components/forms/projects-form/add-skill-form/add-skill-form.component';
+import { EditProjectComponent } from './components/edit-project/edit-project.component';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -27,6 +31,10 @@ import { EditEducationComponent } from './components/edit-education/edit-educati
     EducationFormComponent,
     AddEducationComponent,
     EditEducationComponent,
+    ProjectsFormComponent,
+    AddProjectComponent,
+    AddSkillFormComponent,
+    EditProjectComponent,
   ],
   imports: [
     CommonModule,

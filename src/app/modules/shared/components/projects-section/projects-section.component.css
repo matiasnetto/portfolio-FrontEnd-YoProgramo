@@ -7,6 +7,7 @@
 }
 
 .card {
+  position: relative;
   border: 1px solid #0000002d;
   border-radius: 10px;
   overflow: hidden;
@@ -39,7 +40,7 @@ img {
   position: absolute;
   top: 5%;
   left: 0;
-  z-index: 99;
+  z-index: 4;
 
   transition: transform 0.5s;
   transform: translateX(-100%);
@@ -90,6 +91,14 @@ a:hover {
   background-color: #0d6efd;
   border: 1px solid transparent;
   color: #fff;
+}
+
+.admin-buttons {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 5;
+  display: flex;
 }
 
 @media screen and (max-width: 767px) {

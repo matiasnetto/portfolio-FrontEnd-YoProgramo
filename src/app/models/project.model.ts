@@ -11,3 +11,15 @@ export interface IProject {
   ord: number;
   technologies: ISkill[];
 }
+
+export interface IProjectOut {
+  id?: number;
+  title: string;
+  image_url: string;
+  end_at: Date;
+  description: string;
+  project_url: string;
+  github_url: string;
+  ord: number;
+  technologies: ISkill[];
+}
