@@ -9,6 +9,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
   border: 1px solid #0000002d;
   border-radius: 0.5rem;
   padding: 1.5rem;
@@ -89,26 +90,13 @@ img {
 }
 
 /* EDIT MODE */
-.add-skill-btn {
-  padding: 0.5rem 0.7rem;
-  background-color: #fff;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  font-size: 1rem;
-  cursor: pointer;
-  color: #000;
-  box-shadow: 0 0 20px #000a;
 
-  transition: background-color 0.2s;
-}
-
-.add-skill-btn:hover {
-  background-color: #eee;
-}
-
-.add-skill-btn:active {
-  background-color: #aaa;
+.edit-controls {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  z-index: 5;
 }
 
 @media screen and (max-width: 767px) {
@@ -116,5 +104,9 @@ img {
     grid-template-columns: 1fr 1fr;
     padding: 0;
     gap: 1rem;
+  }
+
+  .edit-controls {
+    flex-direction: column;
   }
 }

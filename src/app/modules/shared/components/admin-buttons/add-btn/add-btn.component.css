@@ -1,0 +1,33 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  margin-bottom: 2rem;
+  padding-right: 2rem;
+}
+
+.add-skill-btn {
+  padding: 0.5rem 0.7rem;
+  background-color: #0d6efd;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 0 20px #000a;
+  transition: background-color 0.2s;
+}
+
+.add-skill-btn:hover {
+  background-color: #eee;
+}
+
+.add-skill-btn:active {
+  background-color: #aaa;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    justify-content: start;
+  }
+}

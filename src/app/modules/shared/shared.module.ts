@@ -10,7 +10,9 @@ import { ProjectsSectionComponent } from './components/projects-section/projects
 import { SectionTitleComponent } from './components/section-title/section-title.component';
 import { SkillsSectionComponent } from './components/skills-section/skills-section.component';
 import { TechnologiesDisplayComponent } from './components/projects-section/technologies-display/technologies-display.component';
-import { BrowserModule } from '@angular/platform-browser';
+import { EditBtnComponent } from './components/admin-buttons/edit-btn/edit-btn.component';
+import { DeleteBtnComponent } from './components/admin-buttons/delete-btn/delete-btn.component';
+import { AddBtnComponent } from './components/admin-buttons/add-btn/add-btn.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,9 @@ import { BrowserModule } from '@angular/platform-browser';
     SectionTitleComponent,
     SkillsSectionComponent,
     TechnologiesDisplayComponent,
+    EditBtnComponent,
+    DeleteBtnComponent,
+    AddBtnComponent,
   ],
   imports: [CommonModule],
   exports: [
@@ -37,6 +42,9 @@ import { BrowserModule } from '@angular/platform-browser';
     SectionTitleComponent,
     SkillsSectionComponent,
     TechnologiesDisplayComponent,
+    EditBtnComponent,
+    DeleteBtnComponent,
+    AddBtnComponent,
   ],
 })
 export class SharedModule {}
