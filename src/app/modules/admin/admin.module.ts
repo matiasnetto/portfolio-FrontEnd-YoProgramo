@@ -18,6 +18,8 @@ import { ProjectsFormComponent } from './components/forms/projects-form/projects
 import { AddProjectComponent } from './components/add-project/add-project.component';
 import { AddSkillFormComponent } from './components/forms/projects-form/add-skill-form/add-skill-form.component';
 import { EditProjectComponent } from './components/edit-project/edit-project.component';
+import { AboutMeFormComponent } from './components/forms/about-me-form/about-me-form.component';
+import { EditAboutMeComponent } from './components/edit-about-me/edit-about-me.component';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -35,6 +37,8 @@ import { EditProjectComponent } from './components/edit-project/edit-project.com
     AddProjectComponent,
     AddSkillFormComponent,
     EditProjectComponent,
+    AboutMeFormComponent,
+    EditAboutMeComponent,
   ],
   imports: [
     CommonModule,

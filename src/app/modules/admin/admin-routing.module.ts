@@ -5,6 +5,7 @@ import { AddEducationComponent } from './components/add-education/add-education.
 import { AddExperienceComponent } from './components/add-experience/add-experience.component';
 import { AddProjectComponent } from './components/add-project/add-project.component';
 import { AddSkillComponent } from './components/add-skill/add-skill.component';
+import { EditAboutMeComponent } from './components/edit-about-me/edit-about-me.component';
 import { EditEducationComponent } from './components/edit-education/edit-education.component';
 import { EditExperienceComponent } from './components/edit-experience/edit-experience.component';
 import { EditProjectComponent } from './components/edit-project/edit-project.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
       { path: 'edit-education/:id', component: EditEducationComponent },
       { path: 'add-project', component: AddProjectComponent },
       { path: 'edit-project/:id', component: EditProjectComponent },
+      { path: 'edit-about-me/:id', component: EditAboutMeComponent },
     ],
   },
 ];

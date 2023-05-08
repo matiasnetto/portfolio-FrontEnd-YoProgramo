@@ -54,10 +54,17 @@ img:hover {
 .about-card {
   width: 65%;
   height: fit-content;
+  position: relative;
   margin: 0rem 0 0 5rem;
   padding: 1.5rem 2rem;
   border-radius: 10px;
   background: #222831;
+}
+
+.admin-controls {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 }
 
 .card__title {

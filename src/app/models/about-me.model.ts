@@ -17,3 +17,15 @@ export interface IAboutMe {
   date_of_birth: Date;
   social_media: ISocialMedia[];
 }
+
+export interface IAboutMeOut {
+  id?: number;
+  name: string;
+  description: string;
+  nationality: string;
+  mail: string;
+  occupation: string;
+  background_img_header_url: string;
+  profile_img_url: string;
+  date_of_birth: Date;
+}
