@@ -25,7 +25,7 @@ export class AuthService {
     this.$isLogedIn.emit(false);
   }
 
-  // public isLoggedIn() {
-  // return Boolean(this.loginData);
-  // }
+  public getBearerAuthToken(): string {
+    return this.loginData?.token ?? '';
+  }
 }

@@ -14,7 +14,7 @@ export class AddSkillFormComponent {
   @Output() onSubmit = new EventEmitter<ISkill[]>();
 
   constructor(private skillsService: SkillsService) {
-    this.$skills = skillsService.getSkills();
+    this.$skills = skillsService.getAllSkills();
   }
 
   isSelected(skill: ISkill): boolean {

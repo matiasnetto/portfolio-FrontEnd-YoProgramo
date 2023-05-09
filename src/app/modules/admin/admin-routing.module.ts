@@ -12,7 +12,7 @@ import { EditEducationComponent } from './components/edit-education/edit-educati
 import { EditExperienceComponent } from './components/edit-experience/edit-experience.component';
 import { EditProjectComponent } from './components/edit-project/edit-project.component';
 import { ShowContactsComponent } from './components/show-contacts/show-contacts.component';
-import { UpdateSkillComponent } from './components/update-skill/update-skill.component';
+import { EditSkillComponent } from './components/edit-skill/edit-skill.component';
 
 const routes: Routes = [
   {
@@ -20,7 +20,7 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       { path: 'add-skill', component: AddSkillComponent },
-      { path: 'edit-skill/:id', component: UpdateSkillComponent },
+      { path: 'edit-skill/:id', component: EditSkillComponent },
       { path: 'add-experience', component: AddExperienceComponent },
       { path: 'edit-experience/:id', component: EditExperienceComponent },
       { path: 'add-education', component: AddEducationComponent },

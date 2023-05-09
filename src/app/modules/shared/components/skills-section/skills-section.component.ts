@@ -22,7 +22,7 @@ export class SkillsSectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.$isLogedIn.subscribe((data) => (this.editMode = data));
-    this.skillsService.getSkills().subscribe((data) => (this.skills = data));
+    this.skillsService.getAllSkills().subscribe((data) => (this.skills = data));
   }
 
   openNewSkillsModal() {
@@ -37,6 +37,11 @@ export class SkillsSectionComponent implements OnInit {
     const input = confirm(
       `Estas seguro que deseas eliminar '${skill.technology}'?`
     );
-    console.log('RES: ', input);
+
+    if (input) {
+      this.skillsService
+        .deleteSkill(skill.id)
+        .subscribe(() => this.skillsService.reloadSkillsData());
+    }
   }
 }

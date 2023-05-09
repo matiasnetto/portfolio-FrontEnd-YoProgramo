@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { ISkill, ISkillOut } from 'src/app/models/skill.model';
 
 @Component({
@@ -12,14 +13,18 @@ export class SkillsFormComponent implements OnInit {
   @Output() onClose = new EventEmitter();
   @Input() title!: string;
   @Input() submitText!: string;
-  @Input() defaultData?: ISkill;
+  @Input() $defaultData?: Observable<ISkill>;
 
   ngOnInit(): void {
-    if (this.defaultData) {
-      this.skillData.controls.id.setValue(this.defaultData.id);
-      this.skillData.controls.technology.setValue(this.defaultData.technology);
-      this.skillData.controls.image_url.setValue(this.defaultData.image_url);
-      this.skillData.controls.ord.setValue(this.defaultData.ord);
+    if (this.$defaultData) {
+      this.$defaultData.subscribe((data) => {
+        this.skillData.controls.id.setValue(data.id);
+        this.skillData.controls.technology.setValue(data.technology);
+        this.skillData.controls.image_url.setValue(data.image_url);
+        this.skillData.controls.percent.setValue(data.percent);
+        this.skillData.controls.ord.setValue(data.ord);
+        console.log(data);
+      });
     }
   }
 

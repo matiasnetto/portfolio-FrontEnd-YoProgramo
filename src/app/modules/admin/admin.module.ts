@@ -7,7 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { SkillsFormComponent } from './components/forms/skills-form/skills-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddSkillComponent } from './components/add-skill/add-skill.component';
-import { UpdateSkillComponent } from './components/update-skill/update-skill.component';
+import { EditSkillComponent } from './components/edit-skill/edit-skill.component';
 import { ExperienceFormComponent } from './components/forms/experience-form/experience-form.component';
 import { AddExperienceComponent } from './components/add-experience/add-experience.component';
 import { EditExperienceComponent } from './components/edit-experience/edit-experience.component';
@@ -30,7 +30,7 @@ import { EditContactComponent } from './components/edit-contact/edit-contact.com
     HomeAdminComponent,
     SkillsFormComponent,
     AddSkillComponent,
-    UpdateSkillComponent,
+    EditSkillComponent,
     ExperienceFormComponent,
     AddExperienceComponent,
     EditExperienceComponent,
