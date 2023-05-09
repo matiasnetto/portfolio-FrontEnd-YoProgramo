@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import {
   IEducationItem,
   IEducationItemOut,
 } from 'src/app/models/education.model';
+import { EducationService } from 'src/app/services/education.service';
 
 @Component({
   selector: 'app-edit-education',
@@ -11,13 +13,17 @@ import {
   styleUrls: ['../modals.css'],
 })
 export class EditEducationComponent {
-  defaultData: IEducationItem | undefined = undefined;
+  $defaultData: Observable<IEducationItem> | undefined = undefined;
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private educationService: EducationService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    console.log(id);
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.$defaultData = this.educationService.getEducationById(id);
   }
 
   handleClose() {
@@ -25,6 +31,9 @@ export class EditEducationComponent {
   }
 
   handleUpdate(data: IEducationItemOut) {
-    console.log(data);
+    this.educationService.updateEducation(data).subscribe(() => {
+      this.educationService.reloadEducationData();
+      this.handleClose();
+    });
   }
 }

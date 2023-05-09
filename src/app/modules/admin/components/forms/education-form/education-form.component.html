@@ -37,6 +37,7 @@
       <input
         type="date"
         formControlName="started_at"
+        [value]="educationData.value.started_at | date : 'yyy-MM-dd'"
         class="date-input"
         id="started_at"
       />
@@ -46,6 +47,7 @@
       <input
         type="date"
         formControlName="end_at"
+        [value]="educationData.value.end_at | date : 'yyy-MM-dd'"
         class="date-input"
         id="end_at"
       />

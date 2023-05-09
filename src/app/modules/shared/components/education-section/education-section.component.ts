@@ -42,6 +42,11 @@ export class EducationSectionComponent implements OnInit {
     const input = confirm(
       `Estas seguro que deseas eliminar tu titulo '${education.title}' en '${education.institute}'?`
     );
-    console.log('RES: ', input);
+
+    if (input) {
+      this.educationService.deleteEducation(education.id).subscribe(() => {
+        this.educationService.reloadEducationData();
+      });
+    }
   }
 }
