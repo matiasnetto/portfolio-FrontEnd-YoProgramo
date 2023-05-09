@@ -1,0 +1,19 @@
+<div class="modal">
+  <div class="container">
+    <h3>Contactos:</h3>
+    <app-add-btn (click)="openCreateNewContact()">Agregar contacto</app-add-btn>
+    <div class="contacts-display">
+      <div *ngFor="let con of contacts" class="contact-item">
+        <div class="admin-controls">
+          <app-edit-btn (click)="openUpdateContact(con)"></app-edit-btn>
+          <app-delete-btn (click)="openDeleteModal(con)"></app-delete-btn>
+        </div>
+        <img [src]="con.img" [alt]="con.name" class="contact-img" />
+        <p class="contact-name">
+          {{ con.name }}
+        </p>
+      </div>
+    </div>
+    <button (click)="handleDoneClick()" class="done-btn">Done</button>
+  </div>
+</div>

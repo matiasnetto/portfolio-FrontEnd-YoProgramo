@@ -129,6 +129,34 @@ img {
   display: none;
 }
 
+.edit-btn {
+  height: 2.3rem;
+  width: 2.3rem;
+  background: #0d6efd;
+  border: none;
+  border-radius: 100%;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 10px #000a, 0 0 15px #0003 inset;
+  margin-right: 1.5rem;
+  /* margin-left: 0.8rem; */
+
+  transition: all 0.3s;
+}
+
+.edit-btn:hover {
+  transform: translateY(-8%);
+  filter: brightness(120%);
+}
+
+.edit-btn-img {
+  height: 1.3rem;
+  width: 1.3rem;
+}
+
 @media screen and (max-width: 767px) {
   .navbar {
     width: 100vw;

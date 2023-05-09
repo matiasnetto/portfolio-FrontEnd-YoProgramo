@@ -17,6 +17,9 @@
       >
         <img [src]="contact.img" [alt]="contact.name" />
       </a>
+      <button *ngIf="editMode" class="edit-btn" (click)="openContactsModal()">
+        <img src="/assets/icons/pencil-solid.svg" alt="" class="edit-btn-img" />
+      </button>
       <a
         *ngIf="editMode"
         (click)="logOut()"

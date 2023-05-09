@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IAboutMe } from 'src/app/models/about-me.model';
 import { AboutMeService } from 'src/app/services/about-me.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -23,7 +24,8 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private aboutMeService: AboutMeService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -41,5 +43,9 @@ export class NavbarComponent implements OnInit {
 
   public logOut() {
     this.authService.logOut();
+  }
+
+  public openContactsModal() {
+    this.router.navigate(['admin', 'contacts']);
   }
 }

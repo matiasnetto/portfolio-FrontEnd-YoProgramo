@@ -20,6 +20,10 @@ import { AddSkillFormComponent } from './components/forms/projects-form/add-skil
 import { EditProjectComponent } from './components/edit-project/edit-project.component';
 import { AboutMeFormComponent } from './components/forms/about-me-form/about-me-form.component';
 import { EditAboutMeComponent } from './components/edit-about-me/edit-about-me.component';
+import { ShowContactsComponent } from './components/show-contacts/show-contacts.component';
+import { AddContactComponent } from './components/add-contact/add-contact.component';
+import { ContactFormComponent } from './components/forms/contact-form/contact-form.component';
+import { EditContactComponent } from './components/edit-contact/edit-contact.component';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -39,6 +43,10 @@ import { EditAboutMeComponent } from './components/edit-about-me/edit-about-me.c
     EditProjectComponent,
     AboutMeFormComponent,
     EditAboutMeComponent,
+    ShowContactsComponent,
+    AddContactComponent,
+    ContactFormComponent,
+    EditContactComponent,
   ],
   imports: [
     CommonModule,
