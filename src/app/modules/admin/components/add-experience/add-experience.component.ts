@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { IExperienceItemOut } from 'src/app/models/experience.model';
+import { ExperienceService } from 'src/app/services/experience.service';
 
 @Component({
   selector: 'app-add-experience',
@@ -8,13 +9,19 @@ import { IExperienceItemOut } from 'src/app/models/experience.model';
   styleUrls: ['../modals.css'],
 })
 export class AddExperienceComponent {
-  constructor(private router: Router) {}
+  constructor(
+    private experienceService: ExperienceService,
+    private router: Router
+  ) {}
 
   handleClose() {
     this.router.navigate(['admin']);
   }
 
   handleCreate(data: IExperienceItemOut) {
-    console.log(data);
+    this.experienceService.createNewExperience(data).subscribe(() => {
+      this.experienceService.reloadExperienceData();
+      this.handleClose();
+    });
   }
 }

@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import {
   IExperienceItem,
   IExperienceItemOut,
 } from 'src/app/models/experience.model';
+import { ExperienceService } from 'src/app/services/experience.service';
 
 @Component({
   selector: 'app-edit-experience',
@@ -11,13 +13,17 @@ import {
   styleUrls: ['../modals.css'],
 })
 export class EditExperienceComponent implements OnInit {
-  defaultData: IExperienceItem | undefined = undefined;
+  $defaultData: Observable<IExperienceItem> | undefined = undefined;
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private experienceService: ExperienceService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    console.log(id);
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.$defaultData = this.experienceService.getExperienceById(id);
   }
 
   handleClose() {
@@ -25,6 +31,9 @@ export class EditExperienceComponent implements OnInit {
   }
 
   handleUpdate(data: IExperienceItemOut) {
-    console.log(data);
+    this.experienceService.updateExperience(data).subscribe(() => {
+      this.experienceService.reloadExperienceData();
+      this.handleClose();
+    });
   }
 }

@@ -2,39 +2,6 @@
   <button (click)="closeModal()" class="close-btn">X</button>
   <h3>{{ title }}</h3>
   <form [formGroup]="experienceData" (submit)="handleSubmit($event)">
-    <!-- <div class="input-container">
-      <label for="technology">Tecnologia:</label>
-      <input
-        type="text"
-        placeholder="Javascript"
-        formControlName="technology"
-        class="text-input"
-        id="technology"
-      />
-    </div>
-
-    <div class="input-container">
-      <label for="image-url">Imagen:</label>
-      <input
-        type="text"
-        placeholder="image URL"
-        formControlName="image_url"
-        class="text-input"
-        id="image-url"
-      />
-    </div>
-
-    <div class="input-container">
-      <label for="percent">Porcentaje: {{ experienceData.value.percent }}</label>
-      <input
-        type="range"
-        formControlName="percent"
-        class="text-input"
-        id="percent"
-      />
-    </div>
- -->
-
     <div class="input-container">
       <label for="enterprise_name">Nombre de la empresa:</label>
       <input
@@ -80,6 +47,7 @@
       <input
         type="date"
         formControlName="started_at"
+        [value]="experienceData.value.started_at | date : 'yyy-MM-dd'"
         class="date-input"
         id="started_at"
       />
@@ -89,6 +57,7 @@
       <input
         type="date"
         formControlName="end_at"
+        [value]="experienceData.value.end_at | date : 'yyy-MM-dd'"
         class="date-input"
         id="end_at"
       />

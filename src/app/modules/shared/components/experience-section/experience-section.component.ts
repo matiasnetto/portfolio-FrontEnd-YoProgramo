@@ -39,6 +39,11 @@ export class ExperienceSectionComponent implements OnInit {
     const input = confirm(
       `Estas seguro que deseas eliminar tu experiencia en '${experience.enterprise_name}'?`
     );
-    console.log('RES: ', input);
+
+    if (input) {
+      this.experienceService.deleteExperience(experience).subscribe(() => {
+        this.experienceService.reloadExperienceData();
+      });
+    }
   }
 }
