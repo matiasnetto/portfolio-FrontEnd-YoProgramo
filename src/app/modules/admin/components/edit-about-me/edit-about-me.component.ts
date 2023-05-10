@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { IAboutMe, IAboutMeOut } from 'src/app/models/about-me.model';
+import { AboutMeService } from 'src/app/services/about-me.service';
 
 @Component({
   selector: 'app-edit-about-me',
@@ -8,13 +10,13 @@ import { IAboutMe, IAboutMeOut } from 'src/app/models/about-me.model';
   styleUrls: ['../modals.css'],
 })
 export class EditAboutMeComponent {
-  defaultData: IAboutMe | undefined = undefined;
+  $defaultData: Observable<IAboutMe> | undefined = undefined;
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(private aboutMeService: AboutMeService, private router: Router) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    console.log(id);
+    this.$defaultData =
+      this.aboutMeService.getAboutMe() as Observable<IAboutMe>;
   }
 
   handleClose() {
@@ -22,6 +24,9 @@ export class EditAboutMeComponent {
   }
 
   handleUpdate(data: IAboutMeOut) {
-    console.log(data);
+    this.aboutMeService.updateAboutMe(data).subscribe(() => {
+      this.aboutMeService.reloadAboutMeData();
+      this.handleClose();
+    });
   }
 }

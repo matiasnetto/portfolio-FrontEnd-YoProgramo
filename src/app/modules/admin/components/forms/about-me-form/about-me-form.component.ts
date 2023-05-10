@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { IAboutMe, IAboutMeOut } from 'src/app/models/about-me.model';
 
 @Component({
@@ -12,7 +13,7 @@ export class AboutMeFormComponent {
   @Output() onClose = new EventEmitter();
   @Input() title!: string;
   @Input() submitText!: string;
-  @Input() defaultData?: IAboutMe;
+  @Input() $defaultData?: Observable<IAboutMe>;
 
   aboutMeData = new FormGroup({
     id: new FormControl<number | null>(null),
@@ -27,28 +28,24 @@ export class AboutMeFormComponent {
   });
 
   ngOnInit(): void {
-    if (this.defaultData) {
-      this.aboutMeData.controls.id.setValue(this.defaultData.id);
-      this.aboutMeData.controls.name.setValue(this.defaultData.name);
-      this.aboutMeData.controls.description.setValue(
-        this.defaultData.description
-      );
-      this.aboutMeData.controls.nationality.setValue(
-        this.defaultData.nationality
-      );
-      this.aboutMeData.controls.mail.setValue(this.defaultData.mail);
-      this.aboutMeData.controls.occupation.setValue(
-        this.defaultData.occupation
-      );
-      this.aboutMeData.controls.background_img_header_url.setValue(
-        this.defaultData.background_img_header_url
-      );
-      this.aboutMeData.controls.profile_img_url.setValue(
-        this.defaultData.profile_img_url
-      );
-      this.aboutMeData.controls.date_of_birth.setValue(
-        this.defaultData.date_of_birth
-      );
+    if (this.$defaultData) {
+      console.log('WIth defaut');
+      this.$defaultData.subscribe((data) => {
+        console.log(data);
+        this.aboutMeData.controls.id.setValue(data.id);
+        this.aboutMeData.controls.name.setValue(data.name);
+        this.aboutMeData.controls.description.setValue(data.description);
+        this.aboutMeData.controls.nationality.setValue(data.nationality);
+        this.aboutMeData.controls.mail.setValue(data.mail);
+        this.aboutMeData.controls.occupation.setValue(data.occupation);
+        this.aboutMeData.controls.background_img_header_url.setValue(
+          data.background_img_header_url
+        );
+        this.aboutMeData.controls.profile_img_url.setValue(
+          data.profile_img_url
+        );
+        this.aboutMeData.controls.date_of_birth.setValue(data.date_of_birth);
+      });
     }
   }
 
