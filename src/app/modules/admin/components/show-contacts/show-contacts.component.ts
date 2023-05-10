@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IContact } from 'src/app/models/about-me.model';
+import { AboutMeService } from 'src/app/services/about-me.service';
 import { ContactsService } from 'src/app/services/contacts.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class ShowContactsComponent implements OnInit {
 
   constructor(
     private contactsService: ContactsService,
+    private aboutMeService: AboutMeService,
     private router: Router
   ) {}
 
@@ -34,7 +36,12 @@ export class ShowContactsComponent implements OnInit {
     const input = confirm(
       `Estas seguro que deseas eliminar '${contact.name}'?`
     );
-    console.log('RES: ', input);
+
+    if (input)
+      this.contactsService.deleteContact(contact).subscribe(() => {
+        this.contactsService.reloadContactsData();
+        this.aboutMeService.reloadAboutMeData();
+      });
   }
 
   handleDoneClick() {

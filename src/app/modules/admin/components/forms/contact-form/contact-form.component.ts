@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { IContact, IContactOut } from 'src/app/models/about-me.model';
 
 @Component({
@@ -12,7 +13,7 @@ export class ContactFormComponent {
   @Output() onClose = new EventEmitter();
   @Input() title!: string;
   @Input() submitText!: string;
-  @Input() defaultData?: IContact;
+  @Input() $defaultData?: Observable<IContact>;
 
   contactData = new FormGroup({
     id: new FormControl<number | null>(null),
@@ -22,11 +23,13 @@ export class ContactFormComponent {
   });
 
   ngOnInit(): void {
-    if (this.defaultData) {
-      this.contactData.controls.id.setValue(this.defaultData.id);
-      this.contactData.controls.name.setValue(this.defaultData.name);
-      this.contactData.controls.url.setValue(this.defaultData.url);
-      this.contactData.controls.img.setValue(this.defaultData.img);
+    if (this.$defaultData) {
+      this.$defaultData.subscribe((data) => {
+        this.contactData.controls.id.setValue(data.id);
+        this.contactData.controls.name.setValue(data.name);
+        this.contactData.controls.url.setValue(data.url);
+        this.contactData.controls.img.setValue(data.img);
+      });
     }
   }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IAboutMe } from 'src/app/models/about-me.model';
+import { IAboutMe, IContact } from 'src/app/models/about-me.model';
 import { AboutMeService } from 'src/app/services/about-me.service';
 import { AuthService } from 'src/app/services/auth.service';
 
