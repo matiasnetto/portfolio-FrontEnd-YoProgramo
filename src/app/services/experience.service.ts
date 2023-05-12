@@ -36,6 +36,7 @@ export class ExperienceService {
       headers: this.getAuthorizationHeaders(),
     });
   }
+
   public updateExperience(
     experience: IExperienceItemOut
   ): Observable<IExperienceItem> {
@@ -49,7 +50,9 @@ export class ExperienceService {
   }
 
   public deleteExperience(experience: IExperienceItem): Observable<Object> {
-    return this.http.delete(this.endpoint + '/' + experience.id);
+    return this.http.delete(this.endpoint + '/' + experience.id, {
+      headers: this.getAuthorizationHeaders(),
+    });
   }
 
   //UPDATE

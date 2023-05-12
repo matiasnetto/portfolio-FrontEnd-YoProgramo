@@ -47,7 +47,9 @@ export class EducationService {
   }
 
   public deleteEducation(id: number): Observable<Object> {
-    return this.http.delete(this.endpoint + '/' + id);
+    return this.http.delete(this.endpoint + '/' + id, {
+      headers: this.getAuthorizationHeaders(),
+    });
   }
 
   public reloadEducationData(): void {
