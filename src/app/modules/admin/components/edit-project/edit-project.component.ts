@@ -1,7 +1,9 @@
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { IProject, IProjectOut } from 'src/app/models/project.model';
+import { ProjectsService } from 'src/app/services/projects.service';
 
 @Component({
   selector: 'app-edit-project',
@@ -9,13 +11,17 @@ import { IProject, IProjectOut } from 'src/app/models/project.model';
   styleUrls: ['../modals.css'],
 })
 export class EditProjectComponent {
-  defaultData: IProject | undefined = undefined;
+  $defaultData: Observable<IProject> | undefined = undefined;
 
-  constructor(private route: ActivatedRoute, private location: Location) {}
+  constructor(
+    private route: ActivatedRoute,
+    private location: Location,
+    private projectsServcie: ProjectsService
+  ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    console.log(id);
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.$defaultData = this.projectsServcie.getProjectById(id);
   }
 
   handleClose() {
@@ -23,6 +29,9 @@ export class EditProjectComponent {
   }
 
   handleUpdate(data: IProjectOut) {
-    console.log(data);
+    this.projectsServcie.updateProject(data).subscribe(() => {
+      this.projectsServcie.reloadProjectsData();
+      this.handleClose();
+    });
   }
 }

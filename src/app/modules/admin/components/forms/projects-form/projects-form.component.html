@@ -80,7 +80,14 @@
           [alt]="tech.technology"
           class="tech-img"
         />
-        <button (click)="openAddSkillModal()" class="add-skill-button">
+        <button
+          (click)="
+            openAddSkillModal();
+            $event.stopPropagation();
+            $event.preventDefault()
+          "
+          class="add-skill-button"
+        >
           Select
           <img
             src="/assets/icons/pencil-solid-dark.svg"

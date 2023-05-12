@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { IProject } from 'src/app/models/project.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProjectsService } from 'src/app/services/projects.service';
@@ -15,12 +14,11 @@ export class ProjectsSectionComponent implements OnInit {
 
   constructor(
     private projectsService: ProjectsService,
-    private authService: AuthService,
-    private router: Router
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
-    this.projectsService.getProjects().subscribe((data) => {
+    this.projectsService.getAllProjects().subscribe((data) => {
       console.log(data);
       this.projects = data;
     });
@@ -40,6 +38,11 @@ export class ProjectsSectionComponent implements OnInit {
     const input = confirm(
       `Estas seguro que deseas eliminar '${project.title}'?`
     );
-    console.log('RES: ', input);
+
+    if (input) {
+      this.projectsService.deleteProject(project).subscribe(() => {
+        this.projectsService.reloadProjectsData();
+      });
+    }
   }
 }
