@@ -1,3 +1,4 @@
+a,
 button {
   height: 2.3rem;
   width: 2.3rem;
@@ -15,7 +16,8 @@ button {
   transition: all 0.3s;
 }
 
-button:hover {
+button:hover,
+a:hover {
   transform: translateY(-8%);
   filter: brightness(120%);
 }

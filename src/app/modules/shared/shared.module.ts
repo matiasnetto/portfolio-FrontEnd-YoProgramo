@@ -13,6 +13,7 @@ import { TechnologiesDisplayComponent } from './components/projects-section/tech
 import { EditBtnComponent } from './components/admin-buttons/edit-btn/edit-btn.component';
 import { DeleteBtnComponent } from './components/admin-buttons/delete-btn/delete-btn.component';
 import { AddBtnComponent } from './components/admin-buttons/add-btn/add-btn.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { AddBtnComponent } from './components/admin-buttons/add-btn/add-btn.comp
     DeleteBtnComponent,
     AddBtnComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   exports: [
     AboutSectionComponent,
     EducationSectionComponent,

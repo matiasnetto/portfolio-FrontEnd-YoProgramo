@@ -27,12 +27,12 @@ export class ExperienceSectionComponent implements OnInit {
     this.editMode = this.authService.isLogedIn;
   }
 
-  openNewExperienceModal() {
-    this.router.navigate(['admin', 'add-experience']);
+  getNewExperienceModalURL() {
+    return `/admin/add-experience`;
   }
 
-  openUpdateModal(experienceId: number) {
-    this.router.navigate(['admin', 'edit-experience', experienceId]);
+  getUpdateModalURL(experienceId: number) {
+    return `/admin/edit-experience/${experienceId}`;
   }
 
   openDeleteModal(experience: IExperienceItem) {

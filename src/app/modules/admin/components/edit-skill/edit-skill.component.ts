@@ -1,5 +1,6 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ISkill, ISkillOut } from 'src/app/models/skill.model';
 import { SkillsService } from 'src/app/services/skills.service';
@@ -15,7 +16,7 @@ export class EditSkillComponent implements OnInit {
   constructor(
     private skillsService: SkillsService,
     private route: ActivatedRoute,
-    private router: Router
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -24,7 +25,7 @@ export class EditSkillComponent implements OnInit {
   }
 
   handleClose() {
-    this.router.navigate(['admin']);
+    this.location.back();
   }
 
   handleUpdate(data: ISkillOut) {

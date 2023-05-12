@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IContact } from 'src/app/models/about-me.model';
@@ -15,7 +16,8 @@ export class ShowContactsComponent implements OnInit {
   constructor(
     private contactsService: ContactsService,
     private aboutMeService: AboutMeService,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -45,6 +47,6 @@ export class ShowContactsComponent implements OnInit {
   }
 
   handleDoneClick() {
-    this.router.navigate(['admin']);
+    this.location.back();
   }
 }

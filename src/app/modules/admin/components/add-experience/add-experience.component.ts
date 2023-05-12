@@ -1,5 +1,5 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { IExperienceItemOut } from 'src/app/models/experience.model';
 import { ExperienceService } from 'src/app/services/experience.service';
 
@@ -11,11 +11,11 @@ import { ExperienceService } from 'src/app/services/experience.service';
 export class AddExperienceComponent {
   constructor(
     private experienceService: ExperienceService,
-    private router: Router
+    private location: Location
   ) {}
 
   handleClose() {
-    this.router.navigate(['admin']);
+    this.location.back();
   }
 
   handleCreate(data: IExperienceItemOut) {

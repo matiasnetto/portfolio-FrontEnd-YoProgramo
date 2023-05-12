@@ -1,5 +1,5 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { ISkillOut } from 'src/app/models/skill.model';
 import { SkillsService } from 'src/app/services/skills.service';
 
@@ -9,10 +9,13 @@ import { SkillsService } from 'src/app/services/skills.service';
   styleUrls: ['../modals.css'],
 })
 export class AddSkillComponent {
-  constructor(private skillsService: SkillsService, private router: Router) {}
+  constructor(
+    private skillsService: SkillsService,
+    private location: Location
+  ) {}
 
   handleClose() {
-    this.router.navigate(['admin']);
+    this.location.back();
   }
 
   handleCreate(data: ISkillOut) {

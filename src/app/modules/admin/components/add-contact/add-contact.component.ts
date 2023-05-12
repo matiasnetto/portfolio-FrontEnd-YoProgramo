@@ -1,5 +1,5 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { IContactOut } from 'src/app/models/about-me.model';
 import { AboutMeService } from 'src/app/services/about-me.service';
 import { ContactsService } from 'src/app/services/contacts.service';
@@ -11,13 +11,13 @@ import { ContactsService } from 'src/app/services/contacts.service';
 })
 export class AddContactComponent {
   constructor(
-    private router: Router,
+    private location: Location,
     private contactsService: ContactsService,
     private aboutMeService: AboutMeService
   ) {}
 
   handleClose() {
-    this.router.navigate(['admin']);
+    this.location.back();
   }
 
   handleCreate(data: IContactOut) {

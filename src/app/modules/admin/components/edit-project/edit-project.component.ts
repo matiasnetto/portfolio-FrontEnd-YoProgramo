@@ -1,5 +1,6 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { IProject, IProjectOut } from 'src/app/models/project.model';
 
 @Component({
@@ -10,7 +11,7 @@ import { IProject, IProjectOut } from 'src/app/models/project.model';
 export class EditProjectComponent {
   defaultData: IProject | undefined = undefined;
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(private route: ActivatedRoute, private location: Location) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -18,7 +19,7 @@ export class EditProjectComponent {
   }
 
   handleClose() {
-    this.router.navigate(['admin']);
+    this.location.back();
   }
 
   handleUpdate(data: IProjectOut) {

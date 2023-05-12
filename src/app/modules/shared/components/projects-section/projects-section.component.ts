@@ -28,12 +28,12 @@ export class ProjectsSectionComponent implements OnInit {
     this.editMode = this.authService.isLogedIn;
   }
 
-  openNewProjectModal() {
-    this.router.navigate(['admin', 'add-project']);
+  getNewProjectModalURL() {
+    return '/admin/add-project';
   }
 
-  openUpdateModal(projectId: number) {
-    this.router.navigate(['admin', 'edit-project', projectId]);
+  getUpdateModalURL(projectId: number) {
+    return `/admin/edit-project/${projectId}`;
   }
 
   openDeleteModal(project: IProject) {

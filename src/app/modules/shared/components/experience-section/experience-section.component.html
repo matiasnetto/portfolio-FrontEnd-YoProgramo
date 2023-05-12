@@ -1,6 +1,10 @@
 <section>
-  <app-section-title number="2" title="Experiencia"></app-section-title>
-  <app-add-btn *ngIf="editMode" (click)="openNewExperienceModal()"
+  <app-section-title
+    number="2"
+    title="Experiencia"
+    id="experience"
+  ></app-section-title>
+  <app-add-btn *ngIf="editMode" [link]="getNewExperienceModalURL()"
     >Add Experience</app-add-btn
   >
   <div class="grid-container">
@@ -12,7 +16,7 @@
       </div>
       <div class="card">
         <div *ngIf="editMode" class="admin-buttons">
-          <app-edit-btn (click)="openUpdateModal(e.id)"></app-edit-btn>
+          <app-edit-btn [link]="getUpdateModalURL(e.id)"></app-edit-btn>
           <app-delete-btn (click)="openDeleteModal(e)"></app-delete-btn>
         </div>
         <img [src]="e.image_url" alt="" />

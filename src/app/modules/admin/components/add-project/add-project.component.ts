@@ -1,5 +1,5 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { IProjectOut } from 'src/app/models/project.model';
 
 @Component({
@@ -8,10 +8,10 @@ import { IProjectOut } from 'src/app/models/project.model';
   styleUrls: ['../modals.css'],
 })
 export class AddProjectComponent {
-  constructor(private router: Router) {}
+  constructor(private location: Location) {}
 
   handleClose() {
-    this.router.navigate(['admin']);
+    this.location.back();
   }
 
   handleCreate(data: IProjectOut) {

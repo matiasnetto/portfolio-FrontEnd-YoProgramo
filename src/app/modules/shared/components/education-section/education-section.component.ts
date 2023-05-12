@@ -29,12 +29,12 @@ export class EducationSectionComponent implements OnInit {
     this.editMode = this.authService.isLogedIn;
   }
 
-  openNewEducationModal() {
-    this.router.navigate(['admin', 'add-education']);
+  getNewEducationModalURL() {
+    return `/admin/add-education`;
   }
 
-  openUpdateModal(experienceId: number) {
-    this.router.navigate(['admin', 'edit-education', experienceId]);
+  getUpdateModalURL(experienceId: number) {
+    return `/admin/edit-education/${experienceId}`;
   }
 
   openDeleteModal(education: IEducationItem) {

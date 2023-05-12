@@ -1,5 +1,5 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IAboutMe, IAboutMeOut } from 'src/app/models/about-me.model';
 import { AboutMeService } from 'src/app/services/about-me.service';
@@ -12,7 +12,10 @@ import { AboutMeService } from 'src/app/services/about-me.service';
 export class EditAboutMeComponent {
   $defaultData: Observable<IAboutMe> | undefined = undefined;
 
-  constructor(private aboutMeService: AboutMeService, private router: Router) {}
+  constructor(
+    private aboutMeService: AboutMeService,
+    private location: Location
+  ) {}
 
   ngOnInit(): void {
     this.$defaultData =
@@ -20,7 +23,7 @@ export class EditAboutMeComponent {
   }
 
   handleClose() {
-    this.router.navigate(['admin']);
+    this.location.back();
   }
 
   handleUpdate(data: IAboutMeOut) {

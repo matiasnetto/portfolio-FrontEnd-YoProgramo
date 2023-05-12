@@ -25,12 +25,12 @@ export class SkillsSectionComponent implements OnInit {
     this.skillsService.getAllSkills().subscribe((data) => (this.skills = data));
   }
 
-  openNewSkillsModal() {
-    this.router.navigate(['admin', 'add-skill']);
+  getNewSkillsModalURL() {
+    return '/admin/add-skill';
   }
 
-  openUpdateSkillsModal(skillId: number) {
-    this.router.navigate(['admin', 'edit-skill', skillId]);
+  getUpdateSkillsModalURL(skillId: number) {
+    return `/admin/edit-skill/${skillId}`;
   }
 
   openDeleteModal(skill: ISkill) {

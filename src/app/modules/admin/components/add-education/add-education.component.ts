@@ -1,5 +1,5 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { IEducationItemOut } from 'src/app/models/education.model';
 import { EducationService } from 'src/app/services/education.service';
 
@@ -11,11 +11,11 @@ import { EducationService } from 'src/app/services/education.service';
 export class AddEducationComponent {
   constructor(
     private educationService: EducationService,
-    private router: Router
+    private location: Location
   ) {}
 
   handleClose() {
-    this.router.navigate(['admin']);
+    this.location.back();
   }
 
   handleCreate(data: IEducationItemOut) {

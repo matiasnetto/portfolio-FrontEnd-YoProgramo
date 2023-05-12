@@ -1,5 +1,6 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import {
   IEducationItem,
@@ -18,7 +19,7 @@ export class EditEducationComponent {
   constructor(
     private educationService: EducationService,
     private route: ActivatedRoute,
-    private router: Router
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -27,7 +28,7 @@ export class EditEducationComponent {
   }
 
   handleClose() {
-    this.router.navigate(['admin']);
+    this.location.back();
   }
 
   handleUpdate(data: IEducationItemOut) {

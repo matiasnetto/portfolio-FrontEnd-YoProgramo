@@ -15,11 +15,13 @@
   font-size: 1rem;
   cursor: pointer;
   box-shadow: 0 0 20px #000a;
-  transition: background-color 0.2s;
+  text-decoration: none;
+  transition: all 0.2s;
 }
 
 .add-skill-btn:hover {
-  background-color: #eee;
+  filter: brightness(130%);
+  box-shadow: 0 0 25px #000d;
 }
 
 .add-skill-btn:active {

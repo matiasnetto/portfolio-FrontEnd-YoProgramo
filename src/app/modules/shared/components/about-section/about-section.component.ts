@@ -24,7 +24,7 @@ export class AboutSectionComponent implements OnInit {
     this.editMode = this.authService.isLogedIn;
   }
 
-  openUpdateModal(aboutMe: IAboutMe) {
-    this.router.navigate(['admin', 'edit-about-me', aboutMe.id]);
+  getUpdateURL(aboutMe: IAboutMe) {
+    return `/admin/edit-about-me/${aboutMe.id}`;
   }
 }

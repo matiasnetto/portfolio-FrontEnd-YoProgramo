@@ -3,9 +3,13 @@
   <div class="container" [ngClass]="{ 'container--open': menuOpened }">
     <ul class="nav-links-container">
       <li *ngFor="let link of links">
-        <a routerLink="" class="nav-link" (click)="toggleMenu()">{{
-          link.title
-        }}</a>
+        <a
+          routerLink="./"
+          [fragment]="link.id"
+          class="nav-link"
+          (click)="toggleMenu()"
+          >{{ link.title }}</a
+        >
         <span class="underline"></span>
       </li>
     </ul>
@@ -17,19 +21,29 @@
       >
         <img [src]="contact.img" [alt]="contact.name" />
       </a>
-      <button *ngIf="editMode" class="edit-btn" (click)="openContactsModal()">
+      <a
+        *ngIf="editMode"
+        class="edit-btn"
+        role="button"
+        [routerLink]="getContactsModalURL()"
+      >
         <img src="/assets/icons/pencil-solid.svg" alt="" class="edit-btn-img" />
-      </button>
+      </a>
       <a
         *ngIf="editMode"
         (click)="logOut()"
-        role="button"
         routerLink="/"
+        role="button"
         class="login-button"
       >
         Logout
       </a>
-      <a *ngIf="!editMode" role="button" (click)="logIn()" class="login-button">
+      <a
+        *ngIf="!editMode"
+        role="button"
+        routerLink="/auth/login"
+        class="login-button"
+      >
         Login
       </a>
     </div>

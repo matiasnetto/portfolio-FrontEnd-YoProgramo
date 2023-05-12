@@ -15,11 +15,11 @@ export class NavbarComponent implements OnInit {
   editMode: boolean = false;
 
   links = [
-    { link: 'about', title: 'About' },
-    { link: 'experience', title: 'Experience' },
-    { link: 'education', title: 'Education' },
-    { link: 'skills', title: 'Habilidades' },
-    { link: 'projects', title: 'Projects' },
+    { id: 'about', title: 'About' },
+    { id: 'experience', title: 'Experience' },
+    { id: 'education', title: 'Education' },
+    { id: 'skills', title: 'Habilidades' },
+    { id: 'projects', title: 'Projects' },
   ];
 
   constructor(
@@ -37,16 +37,11 @@ export class NavbarComponent implements OnInit {
     this.menuOpened = !this.menuOpened;
   }
 
-  public logIn() {
-    this.router.navigate(['/auth', 'login']);
-  }
-
   public logOut() {
     this.authService.logOut();
-    this.router.navigate(['/']);
   }
 
-  public openContactsModal() {
-    this.router.navigate(['admin', 'contacts']);
+  public getContactsModalURL() {
+    return '/admin/contacts';
   }
 }
