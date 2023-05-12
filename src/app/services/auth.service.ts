@@ -14,7 +14,6 @@ interface ILoginData {
 export class AuthService {
   private endpoint = BACKEND_URL;
   private loginData: ILoginData | null = null;
-  // $isLogedIn = new EventEmitter<boolean>(true);
 
   constructor(private http: HttpClient) {}
 
@@ -44,18 +43,12 @@ export class AuthService {
     return this.loginData != null;
   }
 
-  // get isLogedInObservable() {
-  // return this.$isLogedIn.asObservable();
-  // }
-
   private setLoginData(user: string, token: string) {
-    this.loginData = { user: user, token: 'abc123' };
-    // this.$isLogedIn.next(true);
+    this.loginData = { user: user, token: token };
   }
 
   public logOut() {
     this.loginData = null;
-    // this.$isLogedIn.emit(false);
   }
 
   public getBearerAuthToken(): string {
