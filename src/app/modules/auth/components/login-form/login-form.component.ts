@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import {
   AbstractControl,
-  FormBuilder,
+  FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'login-form',
@@ -12,21 +14,19 @@ import {
   styleUrls: ['./login-form.component.css'],
 })
 export class LoginFormComponent {
-  public form: FormGroup;
+  public form = new FormGroup({
+    username: new FormControl('', [
+      Validators.required,
+      Validators.minLength(5),
+      Validators.maxLength(24),
+    ]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(8),
+    ]),
+  });
 
-  constructor(private formBuilder: FormBuilder) {
-    this.form = this.formBuilder.group({
-      username: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(5),
-          Validators.maxLength(24),
-        ],
-      ],
-      password: ['', [Validators.required, Validators.minLength(8)]],
-    });
-  }
+  constructor(private authService: AuthService, private router: Router) {}
 
   get username() {
     return this.form.get('username') as AbstractControl;
@@ -59,8 +59,9 @@ export class LoginFormComponent {
     e.preventDefault();
 
     if (this.form.valid) {
-      //TODO: peticion http
-      alert('Formulario enviado: ' + JSON.stringify(this.form.value));
+      this.authService
+        .logIn(this.form.value.username!, this.form.value.password!)
+        .subscribe(() => this.router.navigate(['/admin']));
     } else {
       this.password.markAsTouched();
       this.username.markAsTouched();

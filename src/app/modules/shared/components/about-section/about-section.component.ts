@@ -21,7 +21,7 @@ export class AboutSectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getAboutMe().subscribe((data) => (this.data = data));
-    this.authService.$isLogedIn.subscribe((data) => (this.editMode = data));
+    this.editMode = this.authService.isLogedIn;
   }
 
   openUpdateModal(aboutMe: IAboutMe) {

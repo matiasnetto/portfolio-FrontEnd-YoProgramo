@@ -11,7 +11,7 @@ import { SkillsService } from 'src/app/services/skills.service';
 })
 export class SkillsSectionComponent implements OnInit {
   skills: ISkill[] = [];
-  editMode: boolean = false;
+  editMode = false;
   openModal = false;
 
   constructor(
@@ -21,7 +21,7 @@ export class SkillsSectionComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.authService.$isLogedIn.subscribe((data) => (this.editMode = data));
+    this.editMode = this.authService.isLogedIn;
     this.skillsService.getAllSkills().subscribe((data) => (this.skills = data));
   }
 

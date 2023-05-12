@@ -24,7 +24,7 @@ export class ExperienceSectionComponent implements OnInit {
       .getExperience()
       .subscribe((data) => (this.experience = data));
 
-    this.authService.$isLogedIn.subscribe((data) => (this.editMode = data));
+    this.editMode = this.authService.isLogedIn;
   }
 
   openNewExperienceModal() {

@@ -26,8 +26,7 @@ export class EducationSectionComponent implements OnInit {
     this.educationService
       .getEducation()
       .subscribe((data) => (this.education = data));
-
-    this.authService.$isLogedIn.subscribe((data) => (this.editMode = data));
+    this.editMode = this.authService.isLogedIn;
   }
 
   openNewEducationModal() {

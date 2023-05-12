@@ -29,8 +29,8 @@ export class NavbarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.editMode = this.authService.isLogedIn;
     this.aboutMeService.getAboutMe().subscribe((data) => (this.data = data));
-    this.authService.$isLogedIn.subscribe((data) => (this.editMode = data));
   }
 
   public toggleMenu() {
@@ -38,11 +38,12 @@ export class NavbarComponent implements OnInit {
   }
 
   public logIn() {
-    this.authService.logIn('juan', '123');
+    this.router.navigate(['/auth', 'login']);
   }
 
   public logOut() {
     this.authService.logOut();
+    this.router.navigate(['/']);
   }
 
   public openContactsModal() {

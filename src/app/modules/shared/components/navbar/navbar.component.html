@@ -29,13 +29,7 @@
       >
         Logout
       </a>
-      <a
-        *ngIf="!editMode"
-        (click)="logIn()"
-        role="button"
-        routerLink="/admin"
-        class="login-button"
-      >
+      <a *ngIf="!editMode" role="button" (click)="logIn()" class="login-button">
         Login
       </a>
     </div>

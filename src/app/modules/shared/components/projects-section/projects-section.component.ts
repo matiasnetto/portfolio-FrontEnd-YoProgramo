@@ -25,7 +25,7 @@ export class ProjectsSectionComponent implements OnInit {
       this.projects = data;
     });
 
-    this.authService.$isLogedIn.subscribe((data) => (this.editMode = data));
+    this.editMode = this.authService.isLogedIn;
   }
 
   openNewProjectModal() {
