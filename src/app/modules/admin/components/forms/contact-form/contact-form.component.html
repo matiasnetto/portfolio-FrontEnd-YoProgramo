@@ -1,0 +1,43 @@
+<div class="container">
+  <button (click)="closeModal()" class="close-btn">X</button>
+  <h3>{{ title }}</h3>
+  <form [formGroup]="contactData" (submit)="handleSubmit($event)">
+    <div class="input-container">
+      <label for="name">Nombre:</label>
+      <input
+        type="text"
+        placeholder="Nombre"
+        formControlName="name"
+        class="text-input"
+        id="name"
+      />
+    </div>
+    <div class="input-container">
+      <label for="url">URL:</label>
+      <input
+        type="text"
+        placeholder="https://miweb.com"
+        formControlName="url"
+        class="text-input"
+        id="url"
+      />
+    </div>
+    <div class="input-container">
+      <label for="img">URL de la imagen:</label>
+      <input
+        type="text"
+        placeholder="https://miweb.com/logo.jpg"
+        formControlName="img"
+        class="text-input"
+        id="img"
+      />
+    </div>
+
+    <input
+      type="submit"
+      class="submit-button"
+      [value]="submitText"
+      [disabled]="!contactData.valid"
+    />
+  </form>
+</div>

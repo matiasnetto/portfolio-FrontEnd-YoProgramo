@@ -1,4 +1,4 @@
-const BASE_URL = '';
+const BACKEND_URL = 'http://192.168.1.40:3000/api';
 // const BASE_URL = '/portfolio-FrontEnd-YoProgramo';
 
-export { BASE_URL };
+export { BACKEND_URL };

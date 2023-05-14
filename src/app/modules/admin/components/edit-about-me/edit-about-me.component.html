@@ -1,0 +1,10 @@
+<div class="modal">
+  <app-about-me-form
+    title="Actualizar About Me"
+    submitText="Actualizar About Me"
+    (onClose)="handleClose()"
+    (onSubmit)="handleUpdate($event)"
+    [$defaultData]="$defaultData"
+  >
+  </app-about-me-form>
+</div>

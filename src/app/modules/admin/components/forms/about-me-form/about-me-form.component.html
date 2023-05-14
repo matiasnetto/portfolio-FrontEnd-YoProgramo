@@ -1,0 +1,99 @@
+<div class="container">
+  <button (click)="closeModal()" class="close-btn">X</button>
+  <h3>{{ title }}</h3>
+  <form [formGroup]="aboutMeData" (submit)="handleSubmit($event)">
+    <div class="input-container">
+      <label for="name">Nombre:</label>
+      <input
+        type="text"
+        placeholder="Nombre"
+        formControlName="name"
+        class="text-input"
+        id="name"
+      />
+    </div>
+
+    <div class="input-container">
+      <label for="occupation">Ocupacion:</label>
+      <input
+        type="text"
+        placeholder="Full Stack Dev"
+        formControlName="occupation"
+        class="text-input"
+        id="occupation"
+      />
+    </div>
+
+    <div class="input-container">
+      <label for="description">Descripcion:</label>
+      <textarea
+        placeholder="Description"
+        formControlName="description"
+        class="text-area-input"
+        id="description"
+      ></textarea>
+    </div>
+
+    <div class="input-container">
+      <label for="nationality">Nacionalidad:</label>
+      <input
+        type="text"
+        placeholder="Argentina"
+        formControlName="nationality"
+        class="text-input"
+        id="nationality"
+      />
+    </div>
+
+    <div class="input-container">
+      <label for="mail">Mail:</label>
+      <input
+        type="text"
+        placeholder="me@mail.com"
+        formControlName="mail"
+        class="text-input"
+        id="mail"
+      />
+    </div>
+
+    <div class="input-container">
+      <label for="background_img_header_url">URL de la imagen de fondo:</label>
+      <input
+        type="text"
+        placeholder="https://miweb.com/image.jpg"
+        formControlName="background_img_header_url"
+        class="text-input"
+        id="background_img_header_url"
+      />
+    </div>
+
+    <div class="input-container">
+      <label for="profile_img_url">URL de imagen de perfil:</label>
+      <input
+        type="text"
+        placeholder="https://miweb.com/image.jpg"
+        formControlName="profile_img_url"
+        class="text-input"
+        id="profile_img_url"
+      />
+    </div>
+
+    <div class="input-container">
+      <label for="date_of_birth">Fecha de nacimiento:</label>
+      <input
+        type="date"
+        formControlName="date_of_birth"
+        [value]="aboutMeData.value.date_of_birth | date : 'yyy-MM-dd'"
+        class="date-input"
+        id="date_of_birth"
+      />
+    </div>
+
+    <input
+      type="submit"
+      class="submit-button"
+      [value]="submitText"
+      [disabled]="!aboutMeData.valid"
+    />
+  </form>
+</div>

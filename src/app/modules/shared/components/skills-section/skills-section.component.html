@@ -1,0 +1,29 @@
+<section>
+  <app-section-title
+    number="4"
+    title="Hard & Soft Skills"
+    id="skills"
+  ></app-section-title>
+  <app-add-btn
+    *ngIf="editMode"
+    [link]="getNewSkillsModalURL()"
+    class="add-skill-btn"
+    >Add Skill</app-add-btn
+  >
+  <div class="grid-container">
+    <div *ngFor="let s of skills" class="card">
+      <div *ngIf="editMode" class="edit-controls">
+        <app-edit-btn [link]="getUpdateSkillsModalURL(s.id)"></app-edit-btn>
+        <app-delete-btn (click)="openDeleteModal(s)"></app-delete-btn>
+      </div>
+      <img [src]="s.image_url" alt="" class="rounded skills-img" />
+      <h5 class="card__title">{{ s.technology }}</h5>
+      <div class="progress">
+        <div class="progress-bar" [ngStyle]="{ width: s.percent + '%' }"></div>
+        <p class="percentage">{{ s.percent }}%</p>
+      </div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</section>

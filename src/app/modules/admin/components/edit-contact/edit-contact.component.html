@@ -1,0 +1,9 @@
+<div class="modal">
+  <app-contact-form
+    title="Actualizar Contacto"
+    submitText="Actualizar Contacto"
+    (onClose)="handleClose()"
+    (onSubmit)="handleUpdate($event)"
+    [$defaultData]="$defaultData"
+  ></app-contact-form>
+</div>

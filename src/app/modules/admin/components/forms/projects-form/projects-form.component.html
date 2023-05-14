@@ -1,0 +1,110 @@
+<div class="add-skill-modal" *ngIf="showAddSkill">
+  <app-add-skill-form
+    [selectedSkils]="projectData.value.technologies ?? []"
+    (onSubmit)="handleAddSkillSubmit($event)"
+  ></app-add-skill-form>
+</div>
+
+<div class="container">
+  <button (click)="closeModal()" class="close-btn">X</button>
+  <h3>{{ title }}</h3>
+  <form [formGroup]="projectData" (submit)="handleSubmit($event)">
+    <div class="input-container">
+      <label for="title">Nombre del proyecto:</label>
+      <input
+        type="text"
+        placeholder="My project"
+        formControlName="title"
+        class="text-input"
+        id="title"
+      />
+    </div>
+    <div class="input-container">
+      <label for="image_url">URL de la imagen:</label>
+      <input
+        type="text"
+        placeholder="https://miweb.com/image.jpg"
+        formControlName="image_url"
+        class="text-input"
+        id="image_url"
+      />
+    </div>
+    <div class="input-container">
+      <label for="project_url">URL del proyecto:</label>
+      <input
+        type="text"
+        placeholder="https://miweb.com"
+        formControlName="project_url"
+        class="text-input"
+        id="project_url"
+      />
+    </div>
+    <div class="input-container">
+      <label for="github_url">URL del proyecto:</label>
+      <input
+        type="text"
+        placeholder="https://github.com/me/my_project"
+        formControlName="github_url"
+        class="text-input"
+        id="github_url"
+      />
+    </div>
+    <div class="input-container">
+      <label for="end_at">Fecha de finalizacion:</label>
+      <input
+        type="date"
+        formControlName="end_at"
+        class="date-input"
+        id="end_at"
+      />
+    </div>
+    <div class="input-container">
+      <label for="description">Descripcion:</label>
+      <textarea
+        type="text"
+        placeholder="Descripcion"
+        formControlName="description"
+        class="text-area-input"
+        id="description"
+      ></textarea>
+    </div>
+
+    <!-- TECHNOLOGIES -->
+
+    <div class="input-container">
+      <label for="technologies">Technologies:</label>
+      <div class="techs-display">
+        <img
+          *ngFor="let tech of projectData.value.technologies"
+          [src]="tech.image_url"
+          [alt]="tech.technology"
+          class="tech-img"
+        />
+        <button
+          (click)="
+            openAddSkillModal();
+            $event.stopPropagation();
+            $event.preventDefault()
+          "
+          class="add-skill-button"
+        >
+          Select
+          <img
+            src="/assets/icons/pencil-solid-dark.svg"
+            alt="edit"
+            class="add-skill-button-icon"
+          />
+        </button>
+      </div>
+    </div>
+
+    <!-- TODO TECHNOLOGIES -->
+
+    <input
+      type="submit"
+      class="submit-button"
+      [value]="submitText"
+      [disabled]="!projectData.valid"
+    />
+  </form>
+</div>

@@ -1,0 +1,30 @@
+<section>
+  <app-section-title
+    number="3"
+    title="Educacion"
+    id="education"
+  ></app-section-title>
+  <app-add-btn *ngIf="editMode" [link]="getNewEducationModalURL()"
+    >Add Education</app-add-btn
+  >
+  <div *ngFor="let e of education" class="card">
+    <div *ngIf="editMode" class="admin-buttons">
+      <app-edit-btn [link]="getUpdateModalURL(e.id)"></app-edit-btn>
+      <app-delete-btn (click)="openDeleteModal(e)"></app-delete-btn>
+    </div>
+    <img [src]="e.image_url" [alt]="e.title" />
+    <div class="card-body">
+      <h5>{{ e.title }}</h5>
+      <p class="card-text">
+        {{ e.institute }}
+      </p>
+      <p class="text-muted">
+        <small>
+          ( {{ e.started_at | date : "MMM yyy" }} -
+          {{ e.end_at | date : "MMM yyy" }}
+          {{ !e.end_at ? "present " : "" }})
+        </small>
+      </p>
+    </div>
+  </div>
+</section>

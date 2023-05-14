@@ -1,0 +1,20 @@
+h3 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.number {
+  color: #0d6efd;
+  margin-right: 1rem;
+}
+
+.line {
+  display: block;
+  height: 2px;
+  width: 30vw;
+  background: #fffa;
+  margin-left: 2rem;
+}

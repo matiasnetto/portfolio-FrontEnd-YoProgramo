@@ -1,0 +1,40 @@
+<section>
+  <app-section-title
+    number="2"
+    title="Experiencia"
+    id="experience"
+  ></app-section-title>
+  <app-add-btn *ngIf="editMode" [link]="getNewExperienceModalURL()"
+    >Add Experience</app-add-btn
+  >
+  <div class="grid-container">
+    <div class="cards-container" *ngFor="let e of experience">
+      <div class="timeline">
+        <div class="line line-top" *ngIf="e.id != experience[0].id"></div>
+        <div class="line line-down"></div>
+        <div class="bullet"></div>
+      </div>
+      <div class="card">
+        <div *ngIf="editMode" class="admin-buttons">
+          <app-edit-btn [link]="getUpdateModalURL(e.id)"></app-edit-btn>
+          <app-delete-btn (click)="openDeleteModal(e)"></app-delete-btn>
+        </div>
+        <img [src]="e.image_url" alt="" />
+        <div class="card-body">
+          <h5>{{ e.enterprise_name }}</h5>
+          <p>
+            {{ e.description }}
+          </p>
+          <p class="text-muted">
+            <small>{{ e.job }} </small>
+            <small style="display: block">
+              ( {{ e.started_at | date : "MMM yyy" }} -
+              {{ e.end_at | date : "MMM yyy" }}
+              {{ !e.end_at ? "present " : "" }})
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

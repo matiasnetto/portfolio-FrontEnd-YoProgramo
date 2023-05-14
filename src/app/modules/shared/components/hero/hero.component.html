@@ -1,0 +1,14 @@
+<header
+  *ngIf="data"
+  [ngStyle]="{ 'background-image': 'url(' + data.background_img_header_url }"
+>
+  <app-navbar></app-navbar>
+  <div class="data-container">
+    <h1 class="text-shadow">{{ data.name }}</h1>
+
+    <h2 class="text-shadow">
+      <span class="text-primary"><</span>{{ data.occupation }}
+      <span class="text-primary">/></span>
+    </h2>
+  </div>
+</header>

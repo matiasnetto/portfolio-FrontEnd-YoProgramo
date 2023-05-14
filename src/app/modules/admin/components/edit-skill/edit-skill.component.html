@@ -1,0 +1,9 @@
+<div class="modal">
+  <app-skills-form
+    title="Actualizar Skill"
+    submitText="Actualizar skill"
+    (onClose)="handleClose()"
+    (onSubmit)="handleUpdate($event)"
+    [$defaultData]="$defaultData"
+  ></app-skills-form>
+</div>

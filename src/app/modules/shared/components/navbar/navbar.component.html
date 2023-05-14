@@ -1,0 +1,59 @@
+<nav class="navbar" *ngIf="data">
+  <h3>#YoProgramo</h3>
+  <div class="container" [ngClass]="{ 'container--open': menuOpened }">
+    <ul class="nav-links-container">
+      <li *ngFor="let link of links">
+        <a
+          routerLink="./"
+          [fragment]="link.id"
+          class="nav-link"
+          (click)="toggleMenu()"
+          >{{ link.title }}</a
+        >
+        <span class="underline"></span>
+      </li>
+    </ul>
+    <div class="social-media-container">
+      <a
+        class="social-media-link"
+        *ngFor="let contact of data.social_media"
+        [href]="contact.url"
+      >
+        <img [src]="contact.img" [alt]="contact.name" />
+      </a>
+      <a
+        *ngIf="editMode"
+        class="edit-btn"
+        role="button"
+        [routerLink]="getContactsModalURL()"
+      >
+        <img src="/assets/icons/pencil-solid.svg" alt="" class="edit-btn-img" />
+      </a>
+      <a
+        *ngIf="editMode"
+        (click)="logOut()"
+        routerLink="/"
+        role="button"
+        class="login-button"
+      >
+        Logout
+      </a>
+      <a
+        *ngIf="!editMode"
+        role="button"
+        routerLink="/auth/login"
+        class="login-button"
+      >
+        Login
+      </a>
+    </div>
+  </div>
+  <div class="hamburger">
+    <input class="checkbox" type="checkbox" (input)="toggleMenu()" />
+    <div class="hamburger-lines">
+      <span class="line line1"></span>
+      <span class="line line2"></span>
+      <span class="line line3"></span>
+    </div>
+  </div>
+</nav>

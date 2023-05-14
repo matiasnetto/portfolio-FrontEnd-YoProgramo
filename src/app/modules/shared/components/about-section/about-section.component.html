@@ -1,0 +1,27 @@
+<section *ngIf="data">
+  <app-section-title title="About me" number="1" id="about"></app-section-title>
+  <div class="container">
+    <div class="about-sidebar">
+      <div class="img-container">
+        <img [src]="data.profile_img_url" />
+      </div>
+      <app-edit-btn *ngIf="editMode" [link]="getUpdateURL(data)"></app-edit-btn>
+      <h2>{{ data.name }}</h2>
+      <h3>{{ data.occupation }}</h3>
+    </div>
+    <div class="about-card">
+      <div *ngIf="editMode" class="admin-controls">
+        <app-edit-btn [link]="getUpdateURL(data)"></app-edit-btn>
+      </div>
+      <p class="card__title">Bienvenido!</p>
+      <div>
+        <p
+          *ngFor="let paragraph of data.description.split('\n')"
+          class="card__paragraph"
+        >
+          {{ paragraph }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

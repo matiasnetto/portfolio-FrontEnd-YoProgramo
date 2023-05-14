@@ -1,0 +1,6 @@
+<div class="technologies-display">
+  <div class="technology-item" *ngFor="let tech of technologies">
+    <img [src]="tech.image_url" class="technology-icon" />
+    <p class="technology-name">{{ tech.technology }}</p>
+  </div>
+</div>

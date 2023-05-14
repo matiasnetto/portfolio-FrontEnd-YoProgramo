@@ -1,0 +1,9 @@
+<div class="modal">
+  <app-projects-form
+    title="Actualizar Proyecto"
+    submitText="Actualizar Proyecto"
+    (onClose)="handleClose()"
+    (onSubmit)="handleUpdate($event)"
+    [$defaultData]="$defaultData"
+  ></app-projects-form>
+</div>

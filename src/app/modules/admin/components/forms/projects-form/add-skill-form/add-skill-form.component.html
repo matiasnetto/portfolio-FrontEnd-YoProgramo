@@ -1,0 +1,15 @@
+<div class="container">
+  <h4>Select skills</h4>
+  <div class="technologies-display">
+    <div
+      class="tech-item"
+      *ngFor="let tech of $skills | async"
+      (click)="handleSkillSelect(tech)"
+      [class.is-selected]="isSelected(tech)"
+    >
+      <img class="tech-img" [src]="tech.image_url" [alt]="tech.technology" />
+      <p class="tech-name">{{ tech.technology }}</p>
+    </div>
+  </div>
+  <button class="done-button" (click)="handleDoneClick()">Done</button>
+</div>
