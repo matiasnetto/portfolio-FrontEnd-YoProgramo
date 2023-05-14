@@ -5,8 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "dev": "ng serve",
-    "build": "ng build --base-href 'https://matiasnetto.github.io/portfolio-FrontEnd-YoProgramo/'",
-    "deploy": "ngh --dir dist/portfolio-frontend",
+    "build": "ng build",
+    "deploy": "gh-pages -d dist/portfolio-forntend",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
