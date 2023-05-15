@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { tap } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -14,6 +15,9 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login-form.component.css'],
 })
 export class LoginFormComponent {
+  isLoading = false;
+  error: string | null = null;
+
   public form = new FormGroup({
     username: new FormControl('', [
       Validators.required,
@@ -59,8 +63,21 @@ export class LoginFormComponent {
     e.preventDefault();
 
     if (this.form.valid) {
+      this.isLoading = true;
       this.authService
         .logIn(this.form.value.username!, this.form.value.password!)
+        .pipe(
+          tap({
+            error: (e) => {
+              console.log(e);
+              this.isLoading = false;
+              this.error = e;
+            },
+            complete: () => {
+              this.isLoading = false;
+            },
+          })
+        )
         .subscribe(() => this.router.navigate(['/admin']));
     } else {
       this.password.markAsTouched();

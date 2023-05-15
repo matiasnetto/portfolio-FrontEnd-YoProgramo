@@ -1,3 +1,5 @@
+<app-loading-screen *ngIf="isLoading"></app-loading-screen>
+
 <section>
   <form
     [formGroup]="form"
@@ -35,5 +37,6 @@
       </p>
     </div>
     <input type="submit" value="Iniciar sesion" />
+    <p *ngIf="error" class="error-text">Usuario o Contraseña incorrecta</p>
   </form>
 </section>
