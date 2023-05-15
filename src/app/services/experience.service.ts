@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, delay, Observable, retryWhen } from 'rxjs';
 import { BACKEND_URL } from 'src/config';
 import {
   IExperienceItem,
@@ -59,6 +59,7 @@ export class ExperienceService {
   public reloadExperienceData(): void {
     this.http
       .get<IExperienceItem[]>(this.endpoint)
+      .pipe(retryWhen((err) => err.pipe(delay(5000))))
       .subscribe((data) => this.experienceData.next(data));
   }
 }

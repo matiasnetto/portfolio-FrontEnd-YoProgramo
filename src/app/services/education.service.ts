@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, delay, Observable, retry, retryWhen } from 'rxjs';
 import { BACKEND_URL } from 'src/config';
 import { IEducationItem, IEducationItemOut } from '../models/education.model';
 import { AuthService } from './auth.service';
@@ -55,6 +55,7 @@ export class EducationService {
   public reloadEducationData(): void {
     this.http
       .get<IEducationItem[]>(this.endpoint)
+      .pipe(retryWhen((err) => err.pipe(delay(5000))))
       .subscribe((data) => this.educationData.next(data));
   }
 }

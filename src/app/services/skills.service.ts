@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, delay, Observable, retryWhen } from 'rxjs';
 import { BACKEND_URL } from 'src/config';
 import { ISkill, ISkillOut } from '../models/skill.model';
 import { AuthService } from './auth.service';
@@ -54,6 +54,7 @@ export class SkillsService {
   public reloadSkillsData(): void {
     this.http
       .get<ISkill[]>(this.endpoint)
+      .pipe(retryWhen((err) => err.pipe(delay(5000))))
       .subscribe((data) => this.skillsData.next(data));
   }
 }

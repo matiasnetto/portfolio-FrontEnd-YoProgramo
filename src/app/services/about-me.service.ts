@@ -1,6 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import {
+  BehaviorSubject,
+  catchError,
+  delay,
+  Observable,
+  retry,
+  retryWhen,
+} from 'rxjs';
 import { BACKEND_URL } from 'src/config';
 import { IAboutMe, IAboutMeOut } from '../models/about-me.model';
 import { AuthService } from './auth.service';
@@ -27,6 +34,7 @@ export class AboutMeService {
   public reloadAboutMeData(): void {
     this.http
       .get<IAboutMe>(this.endpoint + '/1')
+      .pipe(retryWhen((err) => err.pipe(delay(5000))))
       .subscribe((data) => this.aboutMeData.next(data));
   }
 

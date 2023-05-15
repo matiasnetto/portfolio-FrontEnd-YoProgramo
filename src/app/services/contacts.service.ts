@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, delay, Observable, retryWhen } from 'rxjs';
 import { BACKEND_URL } from 'src/config';
 import { IContact, IContactOut } from '../models/about-me.model';
 import { IEducationItemOut } from '../models/education.model';
@@ -55,6 +55,7 @@ export class ContactsService {
   public reloadContactsData(): void {
     this.http
       .get<IContact[]>(this.endpoint)
+      .pipe(retryWhen((err) => err.pipe(delay(5000))))
       .subscribe((data) => this.contactsData.next(data));
   }
 }
