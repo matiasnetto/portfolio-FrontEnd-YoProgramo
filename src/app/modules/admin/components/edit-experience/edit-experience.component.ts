@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import {
   IExperienceItem,
   IExperienceItemOut,
@@ -15,6 +15,7 @@ import { ExperienceService } from 'src/app/services/experience.service';
 })
 export class EditExperienceComponent implements OnInit {
   $defaultData: Observable<IExperienceItem> | undefined = undefined;
+  isLoading = true;
 
   constructor(
     private experienceService: ExperienceService,
@@ -24,7 +25,13 @@ export class EditExperienceComponent implements OnInit {
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.$defaultData = this.experienceService.getExperienceById(id);
+    this.$defaultData = this.experienceService.getExperienceById(id).pipe(
+      tap({
+        complete: () => {
+          this.isLoading = false;
+        },
+      })
+    );
   }
 
   handleClose() {
@@ -32,8 +39,10 @@ export class EditExperienceComponent implements OnInit {
   }
 
   handleUpdate(data: IExperienceItemOut) {
+    this.isLoading = true;
     this.experienceService.updateExperience(data).subscribe(() => {
       this.experienceService.reloadExperienceData();
+      this.isLoading = false;
       this.handleClose();
     });
   }

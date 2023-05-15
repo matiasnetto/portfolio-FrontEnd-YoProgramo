@@ -10,6 +10,8 @@ import { ContactsService } from 'src/app/services/contacts.service';
   styleUrls: ['../modals.css'],
 })
 export class AddContactComponent {
+  isLoading = false;
+
   constructor(
     private location: Location,
     private contactsService: ContactsService,
@@ -21,9 +23,11 @@ export class AddContactComponent {
   }
 
   handleCreate(data: IContactOut) {
+    this.isLoading = true;
     this.contactsService.createNewContact(data).subscribe(() => {
       this.contactsService.reloadContactsData();
       this.aboutMeService.reloadAboutMeData();
+      this.isLoading = false;
       this.handleClose();
     });
   }

@@ -9,6 +9,8 @@ import { SkillsService } from 'src/app/services/skills.service';
   styleUrls: ['../modals.css'],
 })
 export class AddSkillComponent {
+  isLoading = false;
+
   constructor(
     private skillsService: SkillsService,
     private location: Location
@@ -19,8 +21,10 @@ export class AddSkillComponent {
   }
 
   handleCreate(data: ISkillOut) {
+    this.isLoading = true;
     this.skillsService.createNewSkill(data).subscribe(() => {
       this.skillsService.reloadSkillsData();
+      this.isLoading = false;
       this.handleClose();
     });
   }

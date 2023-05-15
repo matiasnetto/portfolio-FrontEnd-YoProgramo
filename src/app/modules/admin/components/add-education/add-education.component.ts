@@ -9,6 +9,7 @@ import { EducationService } from 'src/app/services/education.service';
   styleUrls: ['../modals.css'],
 })
 export class AddEducationComponent {
+  isLoading = false;
   constructor(
     private educationService: EducationService,
     private location: Location
@@ -19,8 +20,10 @@ export class AddEducationComponent {
   }
 
   handleCreate(data: IEducationItemOut) {
+    this.isLoading = true;
     this.educationService.createNewEducation(data).subscribe(() => {
       this.educationService.reloadEducationData();
+      this.isLoading = false;
       this.handleClose();
     });
     console.log(data);

@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { tap } from 'rxjs';
 import { IContact } from 'src/app/models/about-me.model';
 import { AboutMeService } from 'src/app/services/about-me.service';
 import { ContactsService } from 'src/app/services/contacts.service';
@@ -12,6 +13,7 @@ import { ContactsService } from 'src/app/services/contacts.service';
 })
 export class ShowContactsComponent implements OnInit {
   contacts: IContact[] | null = null;
+  isLoading = false;
 
   constructor(
     private contactsService: ContactsService,
@@ -21,9 +23,9 @@ export class ShowContactsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.contactsService
-      .getContacts()
-      .subscribe((data) => (this.contacts = data));
+    this.contactsService.getContacts().subscribe((data) => {
+      this.contacts = data;
+    });
   }
 
   openUpdateContact(contact: IContact) {
@@ -39,11 +41,12 @@ export class ShowContactsComponent implements OnInit {
       `Estas seguro que deseas eliminar '${contact.name}'?`
     );
 
-    if (input)
-      this.contactsService.deleteContact(contact).subscribe(() => {
-        this.contactsService.reloadContactsData();
-        this.aboutMeService.reloadAboutMeData();
-      });
+    if (input) this.isLoading = true;
+    this.contactsService.deleteContact(contact).subscribe(() => {
+      this.contactsService.reloadContactsData();
+      this.aboutMeService.reloadAboutMeData();
+      this.isLoading = false;
+    });
   }
 
   handleDoneClick() {

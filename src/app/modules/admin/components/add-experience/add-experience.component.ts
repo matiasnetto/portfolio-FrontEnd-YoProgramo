@@ -9,6 +9,7 @@ import { ExperienceService } from 'src/app/services/experience.service';
   styleUrls: ['../modals.css'],
 })
 export class AddExperienceComponent {
+  isLoading = false;
   constructor(
     private experienceService: ExperienceService,
     private location: Location
@@ -19,8 +20,10 @@ export class AddExperienceComponent {
   }
 
   handleCreate(data: IExperienceItemOut) {
+    this.isLoading = true;
     this.experienceService.createNewExperience(data).subscribe(() => {
       this.experienceService.reloadExperienceData();
+      this.isLoading = false;
       this.handleClose();
     });
   }

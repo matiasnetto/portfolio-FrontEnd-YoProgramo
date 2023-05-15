@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { IAboutMe, IAboutMeOut } from 'src/app/models/about-me.model';
 import { AboutMeService } from 'src/app/services/about-me.service';
 
@@ -11,6 +11,7 @@ import { AboutMeService } from 'src/app/services/about-me.service';
 })
 export class EditAboutMeComponent {
   $defaultData: Observable<IAboutMe> | undefined = undefined;
+  isLoading = false;
 
   constructor(
     private aboutMeService: AboutMeService,
@@ -27,8 +28,10 @@ export class EditAboutMeComponent {
   }
 
   handleUpdate(data: IAboutMeOut) {
+    this.isLoading = true;
     this.aboutMeService.updateAboutMe(data).subscribe(() => {
       this.aboutMeService.reloadAboutMeData();
+      this.isLoading = false;
       this.handleClose();
     });
   }

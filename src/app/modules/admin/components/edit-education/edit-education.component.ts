@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import {
   IEducationItem,
   IEducationItemOut,
@@ -15,6 +15,7 @@ import { EducationService } from 'src/app/services/education.service';
 })
 export class EditEducationComponent {
   $defaultData: Observable<IEducationItem> | undefined = undefined;
+  isLoading = true;
 
   constructor(
     private educationService: EducationService,
@@ -24,7 +25,13 @@ export class EditEducationComponent {
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.$defaultData = this.educationService.getEducationById(id);
+    this.$defaultData = this.educationService.getEducationById(id).pipe(
+      tap({
+        complete: () => {
+          this.isLoading = false;
+        },
+      })
+    );
   }
 
   handleClose() {
@@ -32,8 +39,10 @@ export class EditEducationComponent {
   }
 
   handleUpdate(data: IEducationItemOut) {
+    this.isLoading = true;
     this.educationService.updateEducation(data).subscribe(() => {
       this.educationService.reloadEducationData();
+      this.isLoading = false;
       this.handleClose();
     });
   }

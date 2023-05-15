@@ -15,6 +15,7 @@ import { EducationService } from 'src/app/services/education.service';
 export class EducationSectionComponent implements OnInit {
   education: IEducationItem[] = [];
   editMode: boolean = false;
+  isLoading = false;
 
   constructor(
     private educationService: EducationService,
@@ -43,8 +44,10 @@ export class EducationSectionComponent implements OnInit {
     );
 
     if (input) {
+      this.isLoading = true;
       this.educationService.deleteEducation(education.id).subscribe(() => {
         this.educationService.reloadEducationData();
+        this.isLoading = false;
       });
     }
   }

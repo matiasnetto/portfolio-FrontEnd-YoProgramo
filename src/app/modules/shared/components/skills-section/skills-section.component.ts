@@ -13,11 +13,11 @@ export class SkillsSectionComponent implements OnInit {
   skills: ISkill[] = [];
   editMode = false;
   openModal = false;
+  isLoading = false;
 
   constructor(
     private skillsService: SkillsService,
-    private authService: AuthService,
-    private router: Router
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -39,9 +39,11 @@ export class SkillsSectionComponent implements OnInit {
     );
 
     if (input) {
-      this.skillsService
-        .deleteSkill(skill.id)
-        .subscribe(() => this.skillsService.reloadSkillsData());
+      this.isLoading = true;
+      this.skillsService.deleteSkill(skill.id).subscribe(() => {
+        this.skillsService.reloadSkillsData();
+        this.isLoading = false;
+      });
     }
   }
 }

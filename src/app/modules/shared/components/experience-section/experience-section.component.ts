@@ -12,6 +12,7 @@ import { ExperienceService } from 'src/app/services/experience.service';
 export class ExperienceSectionComponent implements OnInit {
   experience: IExperienceItem[] = [];
   editMode: boolean = false;
+  isLoading = false;
 
   constructor(
     private experienceService: ExperienceService,
@@ -41,8 +42,10 @@ export class ExperienceSectionComponent implements OnInit {
     );
 
     if (input) {
+      this.isLoading = true;
       this.experienceService.deleteExperience(experience).subscribe(() => {
         this.experienceService.reloadExperienceData();
+        this.isLoading = false;
       });
     }
   }

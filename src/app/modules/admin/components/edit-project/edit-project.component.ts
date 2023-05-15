@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { IProject, IProjectOut } from 'src/app/models/project.model';
 import { ProjectsService } from 'src/app/services/projects.service';
 
@@ -12,6 +12,7 @@ import { ProjectsService } from 'src/app/services/projects.service';
 })
 export class EditProjectComponent {
   $defaultData: Observable<IProject> | undefined = undefined;
+  isLoading = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,7 +22,13 @@ export class EditProjectComponent {
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.$defaultData = this.projectsServcie.getProjectById(id);
+    this.$defaultData = this.projectsServcie.getProjectById(id).pipe(
+      tap({
+        complete: () => {
+          this.isLoading = false;
+        },
+      })
+    );
   }
 
   handleClose() {
@@ -29,8 +36,10 @@ export class EditProjectComponent {
   }
 
   handleUpdate(data: IProjectOut) {
+    this.isLoading = true;
     this.projectsServcie.updateProject(data).subscribe(() => {
       this.projectsServcie.reloadProjectsData();
+      this.isLoading = false;
       this.handleClose();
     });
   }

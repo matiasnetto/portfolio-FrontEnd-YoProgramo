@@ -9,6 +9,7 @@ import { ProjectsService } from 'src/app/services/projects.service';
   styleUrls: ['../modals.css'],
 })
 export class AddProjectComponent {
+  isLoading = false;
   constructor(
     private location: Location,
     private projectsService: ProjectsService
@@ -19,8 +20,10 @@ export class AddProjectComponent {
   }
 
   handleCreate(data: IProjectOut) {
+    this.isLoading = true;
     this.projectsService.createNewProject(data).subscribe(() => {
       this.projectsService.reloadProjectsData();
+      this.isLoading = false;
       this.handleClose();
     });
   }

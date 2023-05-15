@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { IContact, IContactOut } from 'src/app/models/about-me.model';
 import { AboutMeService } from 'src/app/services/about-me.service';
 import { ContactsService } from 'src/app/services/contacts.service';
@@ -13,6 +13,7 @@ import { ContactsService } from 'src/app/services/contacts.service';
 })
 export class EditContactComponent {
   $defaultData: Observable<IContact> | undefined = undefined;
+  isLoading = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,7 +24,13 @@ export class EditContactComponent {
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.$defaultData = this.contactsService.getContactById(id);
+    this.$defaultData = this.contactsService.getContactById(id).pipe(
+      tap({
+        complete: () => {
+          this.isLoading = false;
+        },
+      })
+    );
   }
 
   handleClose() {
@@ -31,9 +38,11 @@ export class EditContactComponent {
   }
 
   handleUpdate(data: IContactOut) {
+    this.isLoading = true;
     this.contactsService.updateEducation(data).subscribe(() => {
       this.contactsService.reloadContactsData();
       this.aboutMeService.reloadAboutMeData();
+      this.isLoading = false;
       this.handleClose();
     });
   }

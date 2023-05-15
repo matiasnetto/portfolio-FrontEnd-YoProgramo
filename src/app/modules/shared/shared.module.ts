@@ -14,6 +14,7 @@ import { EditBtnComponent } from './components/admin-buttons/edit-btn/edit-btn.c
 import { DeleteBtnComponent } from './components/admin-buttons/delete-btn/delete-btn.component';
 import { AddBtnComponent } from './components/admin-buttons/add-btn/add-btn.component';
 import { RouterModule } from '@angular/router';
+import { LoadingScreenComponent } from './components/loading-screen/loading-screen.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { RouterModule } from '@angular/router';
     EditBtnComponent,
     DeleteBtnComponent,
     AddBtnComponent,
+    LoadingScreenComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -46,6 +48,7 @@ import { RouterModule } from '@angular/router';
     EditBtnComponent,
     DeleteBtnComponent,
     AddBtnComponent,
+    LoadingScreenComponent,
   ],
 })
 export class SharedModule {}

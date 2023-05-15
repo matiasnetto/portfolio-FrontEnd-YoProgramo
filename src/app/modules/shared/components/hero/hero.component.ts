@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { tap } from 'rxjs';
 import { IAboutMe } from 'src/app/models/about-me.model';
 import { AboutMeService } from 'src/app/services/about-me.service';
 
@@ -9,10 +10,15 @@ import { AboutMeService } from 'src/app/services/about-me.service';
 })
 export class HeroComponent implements OnInit {
   data: IAboutMe | null = null;
+  isLoading = true;
 
   constructor(private service: AboutMeService) {}
 
   ngOnInit(): void {
-    this.service.getAboutMe().subscribe((data) => (this.data = data));
+    console.log('IS LOADING TO TRUE!!!');
+    this.service.getAboutMe().subscribe((data) => {
+      if (data) this.isLoading = false;
+      this.data = data;
+    });
   }
 }
